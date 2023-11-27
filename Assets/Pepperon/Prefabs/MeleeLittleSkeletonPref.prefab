@@ -1,0 +1,1208 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9191155292866311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2070030356480987218}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Hip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2070030356480987218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9191155292866311}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.08903798, y: -0.45099267, z: 0.20852455, w: 0.863247}
+  m_LocalPosition: {x: 0.097747296, y: -0.047350354, z: 0.0190871}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7957418639868506632}
+  m_Father: {fileID: 1327232960389711523}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &136651487311531302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7835991209076625790}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Big_Fing_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7835991209076625790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136651487311531302}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.42031237, y: -0.49239734, z: 0.09864524, w: 0.75574565}
+  m_LocalPosition: {x: -0.056220923, y: 0.04370538, z: -0.011896761}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4454151061580003183}
+  m_Father: {fileID: 3709846206459080490}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &157191940777015986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6752900511815250682}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Clavicle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6752900511815250682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157191940777015986}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.6462387, y: 0.2476496, z: 0.2676683, w: 0.67037225}
+  m_LocalPosition: {x: -0.10682171, y: 0.014337962, z: 0.014905424}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1324110035296523611}
+  m_Father: {fileID: 5407917113982831914}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &476620415132362630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8880904189846686125}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Clavicle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8880904189846686125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476620415132362630}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5558095, y: -0.27235302, z: 0.40681097, w: 0.6718664}
+  m_LocalPosition: {x: 0.112045914, y: 0.033170354, z: 0.06956103}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7686899576385531113}
+  m_Father: {fileID: 5407917113982831914}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &756032818380016649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8741477762361341798}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Toe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8741477762361341798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756032818380016649}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.1263296e-18, y: 0.049637854, z: -3.3316883e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2502915670862633568}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1562348679189227433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818597003845214642}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &818597003845214642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562348679189227433}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.19047296, y: -0.04147204, z: 0.8223961, w: 0.53447616}
+  m_LocalPosition: {x: -4.8169935e-10, y: -0.04948558, z: 0.00000055952177}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3379282004865827403}
+  m_Father: {fileID: 7957418639868506632}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1629076888394716413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5076053903982452452}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Hip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5076053903982452452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629076888394716413}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.62042904, y: 0.33645448, z: 0.6875499, w: -0.17070873}
+  m_LocalPosition: {x: -0.097747296, y: -0.04735067, z: 0.019087084}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6212779915702809271}
+  m_Father: {fileID: 1327232960389711523}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1869990245772126389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6712599502607457397}
+  - component: {fileID: 5604286683713716422}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:MeleeLittleSkeleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6712599502607457397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869990245772126389}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6320112976314134164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &5604286683713716422
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869990245772126389}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -876546973899608171, guid: 7d2264e6a2ce1af4189bcb0ab3226995, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -1612443924403286647, guid: a6f868666c20ae04eb3f4b849f5910dd, type: 3}
+  m_Bones:
+  - {fileID: 1327232960389711523}
+  - {fileID: 5076053903982452452}
+  - {fileID: 6212779915702809271}
+  - {fileID: 2502915670862633568}
+  - {fileID: 5407917113982831914}
+  - {fileID: 5869991633248533459}
+  - {fileID: 6752900511815250682}
+  - {fileID: 1324110035296523611}
+  - {fileID: 7753607782616552151}
+  - {fileID: 3709846206459080490}
+  - {fileID: 2362026915838944985}
+  - {fileID: 6432622482888669902}
+  - {fileID: 7835991209076625790}
+  - {fileID: 4454151061580003183}
+  - {fileID: 5401307573591561824}
+  - {fileID: 8880904189846686125}
+  - {fileID: 7686899576385531113}
+  - {fileID: 5172618813317382483}
+  - {fileID: 1131361567260458085}
+  - {fileID: 8633801847578423447}
+  - {fileID: 7132316468440453514}
+  - {fileID: 5989888157221990430}
+  - {fileID: 6557185281339957188}
+  - {fileID: 8753701189887531534}
+  - {fileID: 2070030356480987218}
+  - {fileID: 7957418639868506632}
+  - {fileID: 818597003845214642}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 1327232960389711523}
+  m_AABB:
+    m_Center: {x: 0.0060549974, y: 0.18616526, z: 0.14759682}
+    m_Extent: {x: 0.3688803, y: 0.4421379, z: 0.45393968}
+  m_DirtyAABB: 0
+--- !u!1 &2217105125674845927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5401307573591561824}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Item
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5401307573591561824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2217105125674845927}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.45275614, y: -0.54314995, z: -0.4149231, w: 0.5725721}
+  m_LocalPosition: {x: -0.029223647, y: 0.069351465, z: 0.048971567}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3709846206459080490}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2841651954232468391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6557185281339957188}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Big_Fing_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6557185281339957188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2841651954232468391}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00000025439127, y: -0.047221344, z: -0.00000012409228}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5989888157221990430}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2917614233514131937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1327232960389711523}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:Root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1327232960389711523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2917614233514131937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.015583074, y: 0.07696201, z: 0.013360313, w: 0.9968227}
+  m_LocalPosition: {x: -0, y: 0.17415929, z: 8.223874e-18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5407917113982831914}
+  - {fileID: 5076053903982452452}
+  - {fileID: 2070030356480987218}
+  m_Father: {fileID: 6320112976314134164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3187258441482186108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7686899576385531113}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Sholder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7686899576385531113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3187258441482186108}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.41937518, y: -0.50074035, z: 0.13225366, w: 0.7455821}
+  m_LocalPosition: {x: 0.000000023172765, y: -0.04240019, z: -7.105427e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5172618813317382483}
+  m_Father: {fileID: 8880904189846686125}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3257733884866855701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3379282004865827403}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Toe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3379282004865827403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3257733884866855701}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.000000031298683, y: -0.049637888, z: -4.3417714e-13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 818597003845214642}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3337608254707508002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2502915670862633568}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2502915670862633568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337608254707508002}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.10213171, y: -0.012751634, z: 0.78268117, w: 0.61385405}
+  m_LocalPosition: {x: 1.5589115e-17, y: 0.049485702, z: 1.4640951e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8741477762361341798}
+  m_Father: {fileID: 6212779915702809271}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3491564145143807613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6432622482888669902}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Mid_Fing_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6432622482888669902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491564145143807613}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.514063e-16, y: 0.07086711, z: -1.2718319e-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2362026915838944985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3536427699508937035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5407917113982831914}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:Chest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5407917113982831914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3536427699508937035}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.011572855, y: -0.042090014, z: -0.03644031, w: 0.99838203}
+  m_LocalPosition: {x: 0.013976541, y: 0.21918246, z: 0.007973583}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5869991633248533459}
+  - {fileID: 6752900511815250682}
+  - {fileID: 8880904189846686125}
+  m_Father: {fileID: 1327232960389711523}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4595864345119726577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7132316468440453514}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Mid_Fing_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7132316468440453514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595864345119726577}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.938094e-16, y: -0.0708671, z: -0.00000038039}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8633801847578423447}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4844525311465590821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1324110035296523611}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Sholder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1324110035296523611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4844525311465590821}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.26419827, y: -0.43161884, z: 0.4505019, w: 0.73549473}
+  m_LocalPosition: {x: 4.1744182e-18, y: 0.04240018, z: 4.942734e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7753607782616552151}
+  m_Father: {fileID: 6752900511815250682}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5092969087613363610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5989888157221990430}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Big_Fing_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5989888157221990430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5092969087613363610}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.28928736, y: -0.32540274, z: 0.621409, w: 0.65136534}
+  m_LocalPosition: {x: 0.056220897, y: -0.043705076, z: 0.01189702}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6557185281339957188}
+  m_Father: {fileID: 1131361567260458085}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5160917968137887683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8753701189887531534}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Item
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8753701189887531534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160917968137887683}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5662698, y: -0.42348427, z: 0.5362818, w: -0.46087027}
+  m_LocalPosition: {x: 0.005588788, y: -0.08231357, z: 0.03851886}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1131361567260458085}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5371006150814221161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4454151061580003183}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Big_Fing_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4454151061580003183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371006150814221161}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.018174e-17, y: 0.047220916, z: -3.9171697e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7835991209076625790}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5393066376054666111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6320112976314134164}
+  - component: {fileID: 3995473742147815209}
+  - component: {fileID: 7871015630737726206}
+  - component: {fileID: 2470602519374543561}
+  - component: {fileID: 8805890998553085479}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonPref
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6320112976314134164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393066376054666111}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5948274959603663047}
+  - {fileID: 6712599502607457397}
+  - {fileID: 1327232960389711523}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3995473742147815209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393066376054666111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
+--- !u!114 &7871015630737726206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393066376054666111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe58df89b5b74a97a123b5ed2b70422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"title":"Attack","summary":null,"pan":{"x":296.5715,"y":-112.9286},"zoom":1.0,"elements":[{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Idle","summary":null,"pan":{"x":124.9054,"y":101.2715},"zoom":0.8499999,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-205.0,"y":-215.0},"guid":"7aa312a4-eddd-4b64-a6f3-db0060f94e12","$version":"A","$type":"Unity.VisualScripting.OnEnterState","$id":"14"},{"coroutine":false,"defaultValues":{},"position":{"x":-205.0,"y":145.0},"guid":"d8ce2555-9937-49f0-84d2-b110b63d963c","$version":"A","$type":"Unity.VisualScripting.OnExitState","$id":"16"},{"chainable":false,"parameterNames":["name","value"],"member":{"name":"SetBool","parameterTypes":["System.String","System.Boolean"],"targetType":"UnityEngine.Animator","targetTypeName":"UnityEngine.Animator","$version":"A"},"defaultValues":{"target":null,"%name":{"$content":"isIdle","$type":"System.String"},"%value":{"$content":true,"$type":"System.Boolean"}},"position":{"x":15.0,"y":-209.0},"guid":"8bed5c71-3c56-401d-a489-1d1134a9ec5c","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"18"},{"chainable":false,"parameterNames":["name","value"],"member":{"name":"SetBool","parameterTypes":["System.String","System.Boolean"],"targetType":"UnityEngine.Animator","targetTypeName":"UnityEngine.Animator","$version":"A"},"defaultValues":{"target":null,"%name":{"$content":"isIdle","$type":"System.String"},"%value":{"$content":false,"$type":"System.Boolean"}},"position":{"x":-10.0,"y":153.0},"guid":"2a6241cb-7e68-43f4-b82d-395182a721fb","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"22"},{"sourceUnit":{"$ref":"14"},"sourceKey":"trigger","destinationUnit":{"$ref":"18"},"destinationKey":"enter","guid":"1cd196e2-6177-4711-bc54-c43971bc1e72","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"trigger","destinationUnit":{"$ref":"22"},"destinationKey":"enter","guid":"491bd89b-ecbe-4f9e-b48e-8d7504f987ae","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}},"isStart":true,"position":{"x":55.0,"y":227.0},"width":170.0,"guid":"69c21918-7e2b-4614-9ca7-788766257cb9","$version":"A","$type":"Unity.VisualScripting.FlowState","$id":"4"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Run","summary":null,"pan":{"x":153.4207,"y":-22.10509},"zoom":0.8,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-205.0,"y":-215.0},"guid":"fcca448a-ba21-4685-86e1-42d34ef703b1","$version":"A","$type":"Unity.VisualScripting.OnEnterState","$id":"38"},{"coroutine":false,"defaultValues":{},"position":{"x":-205.0,"y":145.0},"guid":"cd1f041f-0668-41b1-b81f-cd9e2c620b59","$version":"A","$type":"Unity.VisualScripting.OnExitState","$id":"40"},{"chainable":false,"parameterNames":["name","value"],"member":{"name":"SetBool","parameterTypes":["System.String","System.Boolean"],"targetType":"UnityEngine.Animator","targetTypeName":"UnityEngine.Animator","$version":"A"},"defaultValues":{"target":null,"%name":{"$content":"isRun","$type":"System.String"},"%value":{"$content":true,"$type":"System.Boolean"}},"position":{"x":15.0,"y":-225.0},"guid":"8d31667e-1cbc-4f37-9ec4-a935f195a558","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"42"},{"chainable":false,"parameterNames":["name","value"],"member":{"name":"SetBool","parameterTypes":["System.String","System.Boolean"],"targetType":"UnityEngine.Animator","targetTypeName":"UnityEngine.Animator","$version":"A"},"defaultValues":{"target":null,"%name":{"$content":"isRun","$type":"System.String"},"%value":{"$content":false,"$type":"System.Boolean"}},"position":{"x":-12.0,"y":154.0},"guid":"4dc43d86-f985-43a9-8bdc-060c8d5e1c4b","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"46"},{"sourceUnit":{"$ref":"38"},"sourceKey":"trigger","destinationUnit":{"$ref":"42"},"destinationKey":"enter","guid":"bc9e98f8-d236-4113-b70a-6a5957d09a4d","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"40"},"sourceKey":"trigger","destinationUnit":{"$ref":"46"},"destinationKey":"enter","guid":"e920ca52-4ab6-42cf-a1d8-296e3d056337","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}},"isStart":false,"position":{"x":188.0,"y":-115.0},"width":170.0,"guid":"0321e0e0-37e9-4902-860b-7bf5c7dd2f6f","$version":"A","$type":"Unity.VisualScripting.FlowState","$id":"28"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":70.04172,"y":80.50397},"zoom":0.8,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-205.0,"y":-215.0},"guid":"fcca448a-ba21-4685-86e1-42d34ef703b1","$version":"A","$type":"Unity.VisualScripting.OnEnterState","$id":"62"},{"coroutine":false,"defaultValues":{},"position":{"x":-205.0,"y":145.0},"guid":"cd1f041f-0668-41b1-b81f-cd9e2c620b59","$version":"A","$type":"Unity.VisualScripting.OnExitState","$id":"64"},{"chainable":false,"parameterNames":["name","value"],"member":{"name":"SetBool","parameterTypes":["System.String","System.Boolean"],"targetType":"UnityEngine.Animator","targetTypeName":"UnityEngine.Animator","$version":"A"},"defaultValues":{"target":null,"%name":{"$content":"isAttack","$type":"System.String"},"%value":{"$content":true,"$type":"System.Boolean"}},"position":{"x":-21.0,"y":-189.0},"guid":"081b4b34-eef8-4243-85fc-0b95f3941f8c","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"66"},{"chainable":false,"parameterNames":["name","value"],"member":{"name":"SetBool","parameterTypes":["System.String","System.Boolean"],"targetType":"UnityEngine.Animator","targetTypeName":"UnityEngine.Animator","$version":"A"},"defaultValues":{"target":null,"%name":{"$content":"isAttack","$type":"System.String"},"%value":{"$content":false,"$type":"System.Boolean"}},"position":{"x":-13.0,"y":136.0},"guid":"2dd937b2-b949-4c3b-b33b-e42a9c9b13ad","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"70"},{"sourceUnit":{"$ref":"62"},"sourceKey":"trigger","destinationUnit":{"$ref":"66"},"destinationKey":"enter","guid":"2b46482e-5727-4ccc-bbf7-360115ef12a6","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"64"},"sourceKey":"trigger","destinationUnit":{"$ref":"70"},"destinationKey":"enter","guid":"48c7392d-435f-40f7-88ec-87c32ec79e7b","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}},"isStart":false,"position":{"x":138.0,"y":-272.0},"width":170.0,"guid":"c4687a86-2c6a-4e86-b728-553d924d41d6","$version":"A","$type":"Unity.VisualScripting.FlowState","$id":"52"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Die","summary":null,"pan":{"x":189.1588,"y":124.3174},"zoom":0.9,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-208.0,"y":-214.0},"guid":"fcca448a-ba21-4685-86e1-42d34ef703b1","$version":"A","$type":"Unity.VisualScripting.OnEnterState","$id":"86"},{"coroutine":false,"defaultValues":{},"position":{"x":-205.0,"y":145.0},"guid":"cd1f041f-0668-41b1-b81f-cd9e2c620b59","$version":"A","$type":"Unity.VisualScripting.OnExitState","$id":"88"},{"chainable":false,"parameterNames":["name","value"],"member":{"name":"SetBool","parameterTypes":["System.String","System.Boolean"],"targetType":"UnityEngine.Animator","targetTypeName":"UnityEngine.Animator","$version":"A"},"defaultValues":{"target":null,"%name":{"$content":"isDie","$type":"System.String"},"%value":{"$content":true,"$type":"System.Boolean"}},"position":{"x":23.0,"y":-208.0},"guid":"a13fc5a6-1a71-48c3-bdd8-f68810b595f1","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"90"},{"chainable":false,"parameterNames":["name","value"],"member":{"name":"SetBool","parameterTypes":["System.String","System.Boolean"],"targetType":"UnityEngine.Animator","targetTypeName":"UnityEngine.Animator","$version":"A"},"defaultValues":{"target":null,"%name":{"$content":"isDie","$type":"System.String"},"%value":{"$content":false,"$type":"System.Boolean"}},"position":{"x":-12.0,"y":160.0},"guid":"6b4779a9-4bd2-4121-9dab-65767451d43e","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"94"},{"sourceUnit":{"$ref":"86"},"sourceKey":"trigger","destinationUnit":{"$ref":"90"},"destinationKey":"enter","guid":"85bcf395-10c4-4aa4-9368-1f9d9528c910","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"88"},"sourceKey":"trigger","destinationUnit":{"$ref":"94"},"destinationKey":"enter","guid":"a57817c2-c1e8-43f5-90c9-65479864b00d","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}},"isStart":false,"position":{"x":193.0,"y":56.0},"width":170.0,"guid":"69e1f143-51ed-4f95-b8ba-39740f154d1c","$version":"A","$type":"Unity.VisualScripting.FlowState","$id":"76"},{"isStart":true,"position":{"x":-165.0,"y":1.0},"width":170.0,"guid":"f0313c9b-801c-4634-82d8-6dc585d90114","$type":"Unity.VisualScripting.AnyState","$id":"100"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"ToAttack","summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":100.0,"y":-50.0},"guid":"69252ec2-d7b1-4f30-8748-47b16e339a9a","$version":"A","$type":"Unity.VisualScripting.TriggerStateTransition","$id":"111"},{"argumentCount":0,"coroutine":false,"defaultValues":{"target":null,"name":{"$content":"ToAttack","$type":"System.String"}},"position":{"x":-127.0,"y":-63.0},"guid":"34e368e8-03be-44ac-bb64-d52ef70f176f","$version":"A","$type":"Unity.VisualScripting.CustomEvent","$id":"113"},{"sourceUnit":{"$ref":"113"},"sourceKey":"trigger","destinationUnit":{"$ref":"111"},"destinationKey":"trigger","guid":"9e771855-d470-46c6-a134-8436504fbb5f","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}},"source":{"$ref":"100"},"destination":{"$ref":"52"},"guid":"66f0e679-45ba-47df-affa-374e2a274bfc","$version":"A","$type":"Unity.VisualScripting.FlowStateTransition"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"ToRun","summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":100.0,"y":-50.0},"guid":"b1a93782-5e40-4ece-8c5d-069b8c88f40d","$version":"A","$type":"Unity.VisualScripting.TriggerStateTransition","$id":"126"},{"argumentCount":0,"coroutine":false,"defaultValues":{"target":null,"name":{"$content":"ToRun","$type":"System.String"}},"position":{"x":-86.0,"y":-58.0},"guid":"93be3e62-609b-4dca-ae19-049a62e3549a","$version":"A","$type":"Unity.VisualScripting.CustomEvent","$id":"128"},{"sourceUnit":{"$ref":"128"},"sourceKey":"trigger","destinationUnit":{"$ref":"126"},"destinationKey":"trigger","guid":"c831ad7b-e6a5-4888-a7f8-4fbcd26967ad","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}},"source":{"$ref":"100"},"destination":{"$ref":"28"},"guid":"d0583a63-d56d-4a54-ac7f-645c069e4868","$version":"A","$type":"Unity.VisualScripting.FlowStateTransition"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"ToDie","summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":100.0,"y":-50.0},"guid":"a36426cb-9aa4-4506-8015-b2102af98cf9","$version":"A","$type":"Unity.VisualScripting.TriggerStateTransition","$id":"141"},{"argumentCount":0,"coroutine":false,"defaultValues":{"target":null,"name":{"$content":"ToDie","$type":"System.String"}},"position":{"x":-134.0,"y":-49.0},"guid":"7858efab-8cb4-4c16-bfa7-373495d94a69","$version":"A","$type":"Unity.VisualScripting.CustomEvent","$id":"143"},{"sourceUnit":{"$ref":"143"},"sourceKey":"trigger","destinationUnit":{"$ref":"141"},"destinationKey":"trigger","guid":"4029305d-5619-4f95-8396-f6aeee3f96a0","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}},"source":{"$ref":"100"},"destination":{"$ref":"76"},"guid":"f064f4a4-a064-4b68-87d3-feedf7dfa464","$version":"A","$type":"Unity.VisualScripting.FlowStateTransition"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"ToIdle","summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":100.0,"y":-66.0},"guid":"9d78782b-cf37-42b2-887b-2c2cbeefd6c1","$version":"A","$type":"Unity.VisualScripting.TriggerStateTransition","$id":"156"},{"argumentCount":0,"coroutine":false,"defaultValues":{"target":null,"name":{"$content":"ToIdle","$type":"System.String"}},"position":{"x":-188.0,"y":-70.0},"guid":"ad3aa317-93c8-4a6f-aab0-15dfbe332880","$version":"A","$type":"Unity.VisualScripting.CustomEvent","$id":"158"},{"sourceUnit":{"$ref":"158"},"sourceKey":"trigger","destinationUnit":{"$ref":"156"},"destinationKey":"trigger","guid":"425639d1-b51e-49bf-8498-4b160b0f7f0f","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}},"source":{"$ref":"100"},"destination":{"$ref":"4"},"guid":"f43845c6-a58a-461a-ae75-84efc360bb8a","$version":"A","$type":"Unity.VisualScripting.FlowStateTransition"}],"$version":"A"}}}'
+    _objectReferences: []
+--- !u!114 &2470602519374543561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393066376054666111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":385.9789,"y":471.0106},"zoom":0.55,"elements":[{"coroutine":false,"defaultValues":{"key":{"$content":"I","$type":"UnityEngine.KeyCode"},"action":{"$content":"Down","$type":"Unity.VisualScripting.PressState"}},"position":{"x":-129.0,"y":21.0},"guid":"f95b89ab-1b6f-45b4-b8e4-71cef8ad1340","$version":"A","$type":"Unity.VisualScripting.OnKeyboardInput","$id":"10"},{"argumentCount":0,"defaultValues":{"name":{"$content":"ToIdle","$type":"System.String"},"target":null},"position":{"x":130.0,"y":22.0},"guid":"f7cb8555-5a7f-4e9c-9641-503cb22b9a6b","$version":"A","$type":"Unity.VisualScripting.TriggerCustomEvent","$id":"12"},{"coroutine":false,"defaultValues":{"key":{"$content":"R","$type":"UnityEngine.KeyCode"},"action":{"$content":"Down","$type":"Unity.VisualScripting.PressState"}},"position":{"x":-128.0,"y":205.0},"guid":"7526383e-3407-4702-abd1-93127651e899","$version":"A","$type":"Unity.VisualScripting.OnKeyboardInput","$id":"14"},{"argumentCount":0,"defaultValues":{"name":{"$content":"ToRun","$type":"System.String"},"target":null},"position":{"x":131.0,"y":206.0},"guid":"a6c54ff8-8c6d-464c-9a43-d1b5c9afaf14","$version":"A","$type":"Unity.VisualScripting.TriggerCustomEvent","$id":"16"},{"coroutine":false,"defaultValues":{"key":{"$content":"A","$type":"UnityEngine.KeyCode"},"action":{"$content":"Down","$type":"Unity.VisualScripting.PressState"}},"position":{"x":-140.0,"y":411.0},"guid":"91ccfa62-8126-4bda-9c16-fd90b162744b","$version":"A","$type":"Unity.VisualScripting.OnKeyboardInput","$id":"18"},{"argumentCount":0,"defaultValues":{"name":{"$content":"ToAttack","$type":"System.String"},"target":null},"position":{"x":119.0,"y":412.0},"guid":"65a5b993-49b6-4628-98b2-1f2670e8d029","$version":"A","$type":"Unity.VisualScripting.TriggerCustomEvent","$id":"20"},{"coroutine":false,"defaultValues":{"key":{"$content":"D","$type":"UnityEngine.KeyCode"},"action":{"$content":"Down","$type":"Unity.VisualScripting.PressState"}},"position":{"x":-137.0,"y":607.0},"guid":"c8c23a01-7b86-4b65-af58-a08c7b9ddd79","$version":"A","$type":"Unity.VisualScripting.OnKeyboardInput","$id":"22"},{"argumentCount":0,"defaultValues":{"name":{"$content":"ToDie","$type":"System.String"},"target":null},"position":{"x":122.0,"y":608.0},"guid":"944edbb1-50d5-4d1d-b3ad-02efe9b53dcf","$version":"A","$type":"Unity.VisualScripting.TriggerCustomEvent","$id":"24"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"12"},"destinationKey":"enter","guid":"39c93a28-9ec1-4d75-be60-1001aa5656bf","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"trigger","destinationUnit":{"$ref":"16"},"destinationKey":"enter","guid":"713da6ab-bbc2-4df1-a5be-5e538996da52","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"18"},"sourceKey":"trigger","destinationUnit":{"$ref":"20"},"destinationKey":"enter","guid":"d812250b-0ca9-44af-857a-67054190b4e6","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"22"},"sourceKey":"trigger","destinationUnit":{"$ref":"24"},"destinationKey":"enter","guid":"d1ead195-7b6c-4228-a5e8-0ae9550635b1","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}}}'
+    _objectReferences: []
+--- !u!95 &8805890998553085479
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393066376054666111}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b971257a02212074ebb2906f3871a8af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &5408704218630307598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5948274959603663047}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:Local_Null
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5948274959603663047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408704218630307598}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1961704403198670170}
+  m_Father: {fileID: 6320112976314134164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5606089562155910336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7957418639868506632}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Knee
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7957418639868506632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5606089562155910336}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.01228764, y: 0.005234342, z: -0.5607434, w: 0.82788193}
+  m_LocalPosition: {x: -0.000000060281074, y: -0.08648691, z: -0.00000033965418}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 818597003845214642}
+  m_Father: {fileID: 2070030356480987218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5629971294178446869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1961704403198670170}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:Root_Ctrl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1961704403198670170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5629971294178446869}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.016406672, y: 0.07695017, z: 0.008902388, w: 0.9968602}
+  m_LocalPosition: {x: -0, y: 0.17338564, z: 8.881784e-18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5948274959603663047}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6012412754190735736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7753607782616552151}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Elbow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7753607782616552151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012412754190735736}
+  serializedVersion: 2
+  m_LocalRotation: {x: -2.4610256e-15, y: -1.2252342e-15, z: 0.48023582, w: 0.8771394}
+  m_LocalPosition: {x: -2.861594e-17, y: 0.14849965, z: 7.419048e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3709846206459080490}
+  m_Father: {fileID: 1324110035296523611}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6131704464877731779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2362026915838944985}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Mid_Fing_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2362026915838944985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6131704464877731779}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5070458, y: -0.017193433, z: 0.029204244, w: 0.86125267}
+  m_LocalPosition: {x: -8.02835e-18, y: 0.06804526, z: -1.0685158e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6432622482888669902}
+  m_Father: {fileID: 3709846206459080490}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6331042651238313302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5869991633248533459}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5869991633248533459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331042651238313302}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.008459686, y: -0.023894148, z: 0.016692914, w: 0.9995393}
+  m_LocalPosition: {x: -2.1094237e-17, y: 0.10514646, z: 1.6653344e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5407917113982831914}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6347742331674730178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8633801847578423447}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Mid_Fing_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8633801847578423447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6347742331674730178}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.31294772, y: -0.0106117185, z: 0.032185495, w: 0.9491655}
+  m_LocalPosition: {x: -0.0000000045215587, y: -0.06804523, z: 0.000000108016664}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7132316468440453514}
+  m_Father: {fileID: 1131361567260458085}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7272664822139893059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6212779915702809271}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Knee
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6212779915702809271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7272664822139893059}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.013457641, y: 0.007991269, z: -0.6566957, w: 0.7539932}
+  m_LocalPosition: {x: 3.618729e-17, y: 0.086486526, z: -1.9557665e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2502915670862633568}
+  m_Father: {fileID: 5076053903982452452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7284073394142079291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5172618813317382483}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Elbow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5172618813317382483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7284073394142079291}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1.16943495e-14, y: 4.509798e-15, z: 0.43831134, w: 0.89882326}
+  m_LocalPosition: {x: -0.0000000039208152, y: -0.14849953, z: 1.4210854e-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1131361567260458085}
+  m_Father: {fileID: 7686899576385531113}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8807917408801427153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3709846206459080490}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:L_Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3709846206459080490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8807917408801427153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.21126866, y: 0.37566718, z: 0.35778722, w: 0.8283888}
+  m_LocalPosition: {x: -7.2898395e-17, y: 0.07558105, z: -1.8355712e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7835991209076625790}
+  - {fileID: 5401307573591561824}
+  - {fileID: 2362026915838944985}
+  m_Father: {fileID: 7753607782616552151}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8852574696396421145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1131361567260458085}
+  m_Layer: 0
+  m_Name: MeleeLittleSkeletonRig:R_Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1131361567260458085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852574696396421145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.10102371, y: 0.20097318, z: -0.25758123, w: 0.93971056}
+  m_LocalPosition: {x: -3.1086245e-17, y: -0.07558109, z: -2.1316282e-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5989888157221990430}
+  - {fileID: 8753701189887531534}
+  - {fileID: 8633801847578423447}
+  m_Father: {fileID: 5172618813317382483}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
