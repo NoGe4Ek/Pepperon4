@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Humanity
+  m_EditorClassIdentifier: Assembly-CSharp:Pepperon.Scripts.Entities.Systems.LoreSystem:Race
+  raceName: "\u0427\u0435\u043B\u043E\u0432\u0435\u0447\u0435\u0441\u0442\u0432\u043E"
+  raceDescription: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435"
+  mainBuilding: {fileID: 0}
+  barak: {fileID: 11400000, guid: e34668597943b4541922f7949635e89f, type: 2}
+  tower: {fileID: 0}
+  heroes: []
+  units:
+  - {fileID: 11400000, guid: 0b575cd2310481d469faa2ecedd832db, type: 2}
+  - {fileID: 11400000, guid: 35fb6b8aed61e4e44a07595459b128bf, type: 2}
+  commonUpgrades:
+    _serializedList:
+    - Key: 0
+      Value:
+        name: Melee
+        description: Desc
+        progress: 0
+        progressDeltas: 000000000a000000140000001e000000

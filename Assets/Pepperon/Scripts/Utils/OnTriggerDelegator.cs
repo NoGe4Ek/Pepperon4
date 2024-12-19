@@ -1,16 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using Mirror.SimpleWeb;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Pepperon.Scripts.Utils {
 /// <summary>
 /// Delegates the call to OnTrigger2D for this object to another object.
 /// </summary>
-public class OnTriggerDelegator : MonoBehaviour
-{
+public class OnTriggerDelegator : MonoBehaviour {
     private Collider _caller;
 
-    private void Awake()
-    {
+    private void Awake() {
         _caller = GetComponent<Collider>();
     }
 
@@ -20,23 +20,32 @@ public class OnTriggerDelegator : MonoBehaviour
     [Tooltip("Which function should be called when trigger was exited.")]
     public UnityEvent<OnTriggerDelegation> exit;
 
-    void OnTriggerEnter(Collider other) => enter.Invoke(new OnTriggerDelegation(_caller, other));
-    void OnTriggerExit(Collider other) => exit.Invoke(new OnTriggerDelegation(_caller, other));
+    void OnTriggerEnter(Collider other) {
+        // if (other is CapsuleCollider)
+        //     enter.Invoke(new OnTriggerDelegation(_caller, other));
+        if (!other.isTrigger)
+            enter.Invoke(new OnTriggerDelegation(_caller, other));
+    }
+
+    void OnTriggerExit(Collider other) {
+        // if (other is CapsuleCollider)
+        //     exit.Invoke(new OnTriggerDelegation(_caller, other));
+        if (!other.isTrigger)
+            exit.Invoke(new OnTriggerDelegation(_caller, other));
+    }
 }
 
 /// <summary>
 /// Stores which collider triggered this call and which collider belongs to the other object.
 /// </summary>
 public struct OnTriggerDelegation {
-
     /// <summary>
     /// Creates an OnTriggerDelegation struct.
     /// Stores which collider triggered this call and which collider belongs to the other object.
     /// </summary>
     /// <param name="caller">The trigger collider which triggered the call.</param>
     /// <param name="other">The collider which belongs to the other object.</param>
-    public OnTriggerDelegation(Collider caller, Collider other)
-    {
+    public OnTriggerDelegation(Collider caller, Collider other) {
         Caller = caller;
         Other = other;
     }
