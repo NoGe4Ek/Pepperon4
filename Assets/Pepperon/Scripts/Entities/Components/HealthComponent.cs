@@ -1,23 +1,26 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Mirror;
 using Pepperon.Scripts.Entities.Controllers;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Infos;
+using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
 using UnityEngine.UI;
 
 namespace Pepperon.Scripts.Entities.Components {
 public class HealthComponent : NetworkBehaviour {
     private SurvivabilityInfo survivabilityInfo;
+    private SurvivabilityInfoProgress survivabilityInfoProgress;
     [SyncVar] private float currentHealth;
     public bool isDied;
     public Slider slider;
 
-    private void Awake() {
+    private void Start() {
         survivabilityInfo = GetComponent<EntityController>().entity.info.OfType<SurvivabilityInfo>().First();
-        currentHealth = survivabilityInfo.maxHealth;
+        survivabilityInfoProgress = GetComponent<EntityController>().entityProgress.info.OfType<SurvivabilityInfoProgress>().First();
+        currentHealth = survivabilityInfoProgress.maxHealth;
     }
 
     private void Update() {
-        slider.value = currentHealth / survivabilityInfo.maxHealth;
+        slider.value = currentHealth / survivabilityInfoProgress.maxHealth;
     }
 
     public float GetCurrentHealth() => currentHealth;

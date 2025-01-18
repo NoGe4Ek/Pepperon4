@@ -2,8 +2,6 @@
 using System.Linq;
 using Mirror;
 using Pepperon.Scripts.Entities.Systems.LoreSystem;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Infos;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Upgrades;
 using Pepperon.Scripts.Managers;
 
 namespace Pepperon.Scripts.Entities.Components.AttackingComponents {

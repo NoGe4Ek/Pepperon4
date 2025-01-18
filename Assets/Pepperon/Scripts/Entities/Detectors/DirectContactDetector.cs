@@ -1,10 +1,9 @@
-using Pepperon.Scripts.AI;
 using Pepperon.Scripts.Entities.Controllers;
 using Pepperon.Scripts.Units.Data;
 using Pepperon.Scripts.Utils;
 using UnityEngine;
 
-namespace Pepperon.Scripts.Units.Detectors {
+namespace Pepperon.Scripts.Entities.Detectors {
 public class DirectContactDetector : MonoBehaviour {
     private MovementData movementData;
 

@@ -5,9 +5,8 @@ using System.Linq;
 using Mirror;
 using Pepperon.Scripts.Controllers;
 using Pepperon.Scripts.Entities.Controllers;
-using Pepperon.Scripts.Entities.Systems.LoreSystem;
-using Unity.VisualScripting;
-using UnityEditor.VersionControl;
+using Pepperon.Scripts.Entities.Systems.LoreSystem.Base;
+using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Entities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Task = Pepperon.Scripts.Utils.Task;
@@ -20,8 +19,14 @@ public class SessionManager : NetworkBehaviour {
     public static event Action OnGameEnd;
     public static event Action OnGameStart;
     private Task startGameDelayCoroutine;
-    
+
     public readonly Dictionary<NetworkConnectionToClient, PlayerController> players = new();
+    public readonly Dictionary<int, PlayerController> knownPlayers = new();
+    public void AddKnownPlayer(int playerId) {
+        var playerController = FindObjectsOfType<PlayerController>()
+            .FirstOrDefault(player => player.playerId == playerId);
+        knownPlayers[playerId] = playerController;
+    }
 
     private void Awake() {
         Instance = this;
@@ -51,28 +56,27 @@ public class SessionManager : NetworkBehaviour {
         for (var i = 0; i < players.Values.Count; i++) {
             var player = players.Values.ToList()[i];
 
-            player.race = LoreHolder.Instance.races.First().DeepCopy();
+            player.SetRace(LoreHolder.Instance.races.First());
+            player.SetPlayerId(i);
             
-            player.playerType = i;
             var startPos = mainBuildingStartPoints[i];
             Vector3 directionToLook = Vector3.zero - startPos.position;
             Quaternion lookRotation = Quaternion.LookRotation(directionToLook);
-            var mainBuilding = Instantiate(player.race.barak.prefab, startPos.position, lookRotation);
+            var mainBuilding = Instantiate(player.race.entities[CommonEntityType.Barak].First().prefab, startPos.position, lookRotation);
             var buildingController = mainBuilding.GetComponent<BuildingController>();
-            buildingController.entity = player.race.barak;
-            buildingController.playerType = player.playerType;
-            NetworkServer.Spawn(mainBuilding, player.connectionToClient);
-
+            buildingController.playerType = player.playerId;
             player.mainBuilding = mainBuilding;
+
+            NetworkServer.Spawn(mainBuilding, player.connectionToClient);
+            
+            buildingController.entityId = new EntityId(CommonEntityType.Barak, 0);
         }
-        
+
         OnGameStart?.Invoke();
         isGameNow = true;
     }
 
-    private void SetupUnits() {
-        
-    }
+    private void SetupUnits() { }
 
     private void OnDie(GameObject killerObject, GameObject diedObject) {
         if (players.Any(it => it.Value.mainBuilding == diedObject)) {

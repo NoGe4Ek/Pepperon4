@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using Mirror;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Infos;
+using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
 using Pepperon.Scripts.Units.Components;
 using Pepperon.Scripts.Units.Components.AttackingComponents;
 using UnityEngine;

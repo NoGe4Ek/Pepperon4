@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Pepperon.Scripts.AI;
 using Pepperon.Scripts.AI.Units.ScriptableObjects;
 using Pepperon.Scripts.Entities.MovementSystem.Behaviours;
 using Pepperon.Scripts.Entities.Systems.LoreSystem;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Infos;
+using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
 using Pepperon.Scripts.ScriptableObjects;
 using Pepperon.Scripts.Units.Components;
 using Pepperon.Scripts.Units.Data;
@@ -17,6 +18,9 @@ public class ObstacleAvoidanceBehaviour : BaseSteeringBehaviour
 
     private void Awake() {
         movementData = GetComponentInParent<MovementData>();
+    }
+
+    private void Start() {
         movementInfo = GetComponentInParent<MovementComponent>().movementInfo;
     }
 

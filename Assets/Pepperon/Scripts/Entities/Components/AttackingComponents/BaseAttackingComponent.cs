@@ -6,7 +6,7 @@ using Pepperon.Scripts.EditorExtensions.Attributes;
 using Pepperon.Scripts.Entities.Components.AttackingComponents;
 using Pepperon.Scripts.Entities.Controllers;
 using Pepperon.Scripts.Entities.Systems.LoreSystem;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Infos;
+using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
 using Pepperon.Scripts.ScriptableObjects;
 using Pepperon.Scripts.Units.Data;
 using Pepperon.Scripts.Units.States.AttackingState;
@@ -23,8 +23,8 @@ public abstract class BaseAttackingComponent: NetworkBehaviour{
     public void Disable() {
         isActive = false;
         attackingData.currentAttackCoroutine?.Pause();
-        animationComponent.ResetTrigger(Attacking.TriggerName);
-        animationComponent.ResetTrigger(Idle.TriggerName);
+        // animationComponent.ResetTrigger(Attacking.TriggerName);
+        // animationComponent.ResetTrigger(Idle.TriggerName);
     }
 
     public void Enable() {
@@ -34,9 +34,10 @@ public abstract class BaseAttackingComponent: NetworkBehaviour{
 
 
     [SerializeField] protected AttackingInfo attackingInfo;
+    [SerializeField] protected AttackingInfoProgress attackingInfoProgress;
     [SerializeField] public TempAttackingInfo tempAttackingInfo;
 
-    protected float GetAttack() => attackingInfo.attack + tempAttackingInfo.attackDelta;
+    protected float GetAttack() => attackingInfoProgress.attack + tempAttackingInfo.attackDelta;
     
     [SerializeField] public AttackingData attackingData;
     [SerializeField] protected Transform attackRange;
@@ -44,6 +45,8 @@ public abstract class BaseAttackingComponent: NetworkBehaviour{
     private void SetAttackingState(AttackingData.AttackStateEnum value) { this.attackingState = value; }
     public AttackingData.AttackStateEnum lastLocalAttackingState;
     public bool canAttack = true;
+    
+    public event Action OnAttackPerformed;
 
     private AnimationComponent animationComponent;
 
@@ -55,15 +58,19 @@ public abstract class BaseAttackingComponent: NetworkBehaviour{
     protected virtual void Awake() {
         animationComponent = GetComponent<AnimationComponent>();
         attackRange.GetComponent<Renderer>().enabled = false;
+    }
+
+    private void Start() {
         attackingInfo = GetComponent<EntityController>().entity.info.OfType<AttackingInfo>().First();
+        attackingInfoProgress = GetComponent<EntityController>().entityProgress.info.OfType<AttackingInfoProgress>().First();
     }
 
     protected virtual void Update() {
         if (!isServer) return;
         if (!isActive) return;
 
-        attackRange.localScale = new Vector3(attackingInfo.attackRange, attackingInfo.attackRange, attackingInfo.attackRange);
-        animationComponent.SetFloat(attackingInfo.attackingAnimationSpeedName, attackingInfo.AttackAnimationMultiplier);
+        attackRange.localScale = new Vector3(attackingInfoProgress.attackRange, attackingInfoProgress.attackRange, attackingInfoProgress.attackRange);
+        animationComponent.SetFloat(attackingInfo.attackingAnimationSpeedName, attackingInfoProgress.AttackAnimationMultiplier);
 
         if (attackingData.currentTarget) {
             if (canAttack && attackingData.currentAttackCoroutine is not { Running: true }) {
@@ -83,27 +90,30 @@ public abstract class BaseAttackingComponent: NetworkBehaviour{
     protected abstract IEnumerator Attack();
 
     protected IEnumerator PerformAttack(Action onAttackComplete) {
-        animationComponent.SetTrigger(Attacking.TriggerName);
+        // animationComponent.SetTrigger(Attacking.TriggerName);
         SetAttackingState(AttackingData.AttackStateEnum.Attacking);
 
         canAttack = false;
         float timer = 0f;
-        while (timer < attackingInfo.attackDelay) {
+        while (timer < attackingInfoProgress.attackDelay) {
             timer += Time.deltaTime;
-            if (timer > attackingInfo.AttackAnimationDuration &&
+            if (timer > attackingInfoProgress.AttackAnimationDuration &&
                 attackingState != AttackingData.AttackStateEnum.WaitingForAttack) {
-                if (attackingData.currentTarget != null)
+                if (attackingData.currentTarget != null) {
                     onAttackComplete.Invoke();
-                animationComponent.ResetTrigger(Attacking.TriggerName);
-                animationComponent.SetTrigger(Idle.TriggerName);
+                    OnAttackPerformed?.Invoke();
+                }
+
+                // animationComponent.ResetTrigger(Attacking.TriggerName);
+                // animationComponent.SetTrigger(Idle.TriggerName);
                 SetAttackingState(AttackingData.AttackStateEnum.WaitingForAttack);
             }
 
             yield return null;
         }
 
-        animationComponent.ResetTrigger(Attacking.TriggerName);
-        animationComponent.ResetTrigger(Idle.TriggerName);
+        // animationComponent.ResetTrigger(Attacking.TriggerName);
+        // animationComponent.ResetTrigger(Idle.TriggerName);
         canAttack = true;
     }
 }

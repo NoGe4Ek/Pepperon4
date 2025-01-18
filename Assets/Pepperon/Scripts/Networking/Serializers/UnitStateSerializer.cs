@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Mirror;
 using Pepperon.Scripts.Entities.States._Base;
+using Pepperon.Scripts.Entities.States.CastingState;
 using Pepperon.Scripts.Units.States;
 using Pepperon.Scripts.Units.States.AttackingState;
 using Pepperon.Scripts.Units.States.DyingState;
@@ -16,6 +17,7 @@ public static class UnitStateSerializer {
         { Running.Id, RunningHolder.Instance },
         { Attacking.Id, AttackingStateHolder.Instance },
         { Dying.Id, DyingHolder.Instance },
+        { Casting.Id, CastingHolder.Instance },
     };
 
     // const byte IDLE = 1;

@@ -1,5 +1,6 @@
+using System;
 using Pepperon.Scripts.Entities.MovementSystem.Behaviours;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Infos;
+using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
 using Pepperon.Scripts.Units.Components;
 using Pepperon.Scripts.Units.Data;
 using UnityEngine;
@@ -13,6 +14,9 @@ public class SeekBehaviour : BaseSteeringBehaviour {
 
     private void Awake() {
         movementData = GetComponentInParent<MovementData>();
+    }
+
+    private void Start() {
         movementInfo = GetComponentInParent<MovementComponent>().movementInfo;
     }
 

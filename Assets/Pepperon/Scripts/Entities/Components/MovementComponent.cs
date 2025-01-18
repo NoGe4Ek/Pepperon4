@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +7,11 @@ using Pepperon.Scripts.EditorExtensions.Attributes;
 using Pepperon.Scripts.Entities.Controllers;
 using Pepperon.Scripts.Entities.MovementSystem.Behaviours;
 using Pepperon.Scripts.Entities.Systems.LoreSystem;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Infos;
+using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
 using Pepperon.Scripts.Managers;
 using Pepperon.Scripts.Units.Data;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // todo limit to send velocity updates or make interpolation lerp on client side
 // Vector3.Lerp(previousVelocity, rb.velocity, Time.fixedDeltaTime * syncRate);
@@ -25,6 +27,7 @@ public class MovementComponent : NetworkBehaviour {
     }
 
     public MovementInfo movementInfo;
+    public MovementInfoProgress movementInfoProgress;
     [SerializeField] public MovementData movementData;
     [SerializeField] public List<BaseSteeringBehaviour> behaviours;
     [SerializeField] public ContextSolver movementDirectionSolver;
@@ -53,7 +56,11 @@ public class MovementComponent : NetworkBehaviour {
 
         obstacleRange.GetComponent<Renderer>().enabled = false;
         chaseRange.GetComponent<Renderer>().enabled = false;
+    }
+
+    private void Start() {
         movementInfo = GetComponent<EntityController>().entity.info.OfType<MovementInfo>().First();
+        movementInfoProgress = GetComponent<EntityController>().entityProgress.info.OfType<MovementInfoProgress>().First();
     }
 
     private void FixedUpdate() {
@@ -68,9 +75,9 @@ public class MovementComponent : NetworkBehaviour {
         if (!isActive) return;
 
         obstacleRange.localScale =
-            new Vector3(movementInfo.obstacleRange, movementInfo.obstacleRange, movementInfo.obstacleRange);
-        chaseRange.localScale = new Vector3(movementInfo.chaseRange, movementInfo.chaseRange, movementInfo.chaseRange);
-        animationComponent.SetFloat(movementInfo.runningAnimationSpeedName, movementInfo.speed);
+            new Vector3(movementInfoProgress.obstacleRange, movementInfoProgress.obstacleRange, movementInfoProgress.obstacleRange);
+        chaseRange.localScale = new Vector3(movementInfoProgress.chaseRange, movementInfoProgress.chaseRange, movementInfoProgress.chaseRange);
+        animationComponent.SetFloat(movementInfo.runningAnimationSpeedName, movementInfoProgress.speed);
 
         if (!isServer) return;
         FindTarget();
@@ -125,13 +132,13 @@ public class MovementComponent : NetworkBehaviour {
     private void Move() {
         if (MovementDirection.magnitude > 0 && currentSpeed >= 0) {
             oldMovementInput = MovementDirection;
-            currentSpeed += movementInfo.acceleration * movementInfo.speed * Time.deltaTime;
+            currentSpeed += movementInfoProgress.acceleration * movementInfoProgress.speed * Time.deltaTime;
         }
         else {
-            currentSpeed -= movementInfo.deacceleration * movementInfo.speed * Time.deltaTime;
+            currentSpeed -= movementInfoProgress.deacceleration * movementInfoProgress.speed * Time.deltaTime;
         }
 
-        currentSpeed = Mathf.Clamp(currentSpeed, 0, movementInfo.speed);
+        currentSpeed = Mathf.Clamp(currentSpeed, 0, movementInfoProgress.speed);
         var newPosition = rb.position + oldMovementInput * (currentSpeed * Time.deltaTime);
         transform.position = newPosition;
 

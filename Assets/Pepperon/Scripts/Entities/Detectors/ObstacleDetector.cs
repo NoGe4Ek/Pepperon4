@@ -1,10 +1,9 @@
-using Pepperon.Scripts.AI;
-using Pepperon.Scripts.AI.Units.ScriptableObjects;
 using Pepperon.Scripts.Entities.Controllers;
 using Pepperon.Scripts.Units.Data;
 using Pepperon.Scripts.Utils;
 using UnityEngine;
 
+namespace Pepperon.Scripts.Entities.Detectors {
 public class ObstacleDetector : MonoBehaviour {
     [SerializeField] private LayerMask obstacleLayerMask; // rename
 
@@ -27,7 +26,7 @@ public class ObstacleDetector : MonoBehaviour {
         //     movementData.units.Add(otherUnit);
         // }
         // else {
-            movementData.obstacles.Add(delegation.Other);
+        movementData.obstacles.Add(delegation.Other);
         // }
     }
 
@@ -42,7 +41,8 @@ public class ObstacleDetector : MonoBehaviour {
         //     movementData.units.Remove(otherUnit);
         // }
         // else {
-            movementData.obstacles.Remove(delegation.Other);
+        movementData.obstacles.Remove(delegation.Other);
         // }
     }
+}
 }

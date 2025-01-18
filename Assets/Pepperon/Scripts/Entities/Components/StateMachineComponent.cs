@@ -43,6 +43,7 @@ public class StateStrategyMap {
 public class StateMachineComponent : NetworkBehaviour {
     [SerializeField] private StateStrategyMap stateStrategy;
 
+    public EntityState previousState;
     [SyncVar(hook = nameof(OnUnitStateChange))]
     public EntityState currentState;
 
@@ -52,6 +53,7 @@ public class StateMachineComponent : NetworkBehaviour {
     public HealthComponent healthComponent;
     public BaseAttackingComponent attackingComponent;
     public AnimationComponent animationComponent;
+    public AbilityComponent abilityComponent;
 
 
     public void OnUnitStateChange(EntityState oldEntityState, EntityState newEntityState) {
@@ -68,6 +70,7 @@ public class StateMachineComponent : NetworkBehaviour {
         healthComponent = GetComponent<HealthComponent>();
         attackingComponent = GetComponent<BaseAttackingComponent>();
         animationComponent = GetComponent<AnimationComponent>();
+        abilityComponent = GetComponent<AbilityComponent>();
     }
 
     private void Start() {
@@ -83,6 +86,7 @@ public class StateMachineComponent : NetworkBehaviour {
 
     public void SwitchState(EntityState newEntityState) {
         CurrentStrategy().OnExitState(this);
+        previousState = currentState;
         currentState = newEntityState;
         CurrentStrategy().OnEnterState(this);
     }
@@ -91,6 +95,10 @@ public class StateMachineComponent : NetworkBehaviour {
         if (diedObject == gameObject && !IsDying()) {
             SwitchState(DyingHolder.Instance);
         }
+    }
+    
+    public void OnCastingEnd() {
+        SwitchState(previousState);
     }
 
     private void OnDestroy() {
