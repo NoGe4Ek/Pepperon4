@@ -75,6 +75,12 @@ public class Task
 
 class TaskManager : MonoBehaviour
 {
+	public static TaskManager Instance { get; private set; }
+
+	private void Awake() {
+		Instance = this;
+	}
+	
 	public class TaskState
 	{
 		public bool Running {
@@ -115,7 +121,7 @@ class TaskManager : MonoBehaviour
 		public void Start()
 		{
 			running = true;
-			singleton.StartCoroutine(CallWrapper());
+			Instance.StartCoroutine(CallWrapper());
 		}
 		
 		public void Stop()
@@ -147,14 +153,12 @@ class TaskManager : MonoBehaviour
 		}
 	}
 
-	static TaskManager singleton;
-
 	public static TaskState CreateTask(IEnumerator coroutine)
 	{
-		if(singleton == null) {
-			GameObject go = new GameObject("TaskManager");
-			singleton = go.AddComponent<TaskManager>();
-		}
+		// if(singleton == null) {
+		// 	GameObject go = new GameObject("TaskManager");
+		// 	singleton = go.AddComponent<TaskManager>();
+		// }
 		return new TaskState(coroutine);
 	}
 }

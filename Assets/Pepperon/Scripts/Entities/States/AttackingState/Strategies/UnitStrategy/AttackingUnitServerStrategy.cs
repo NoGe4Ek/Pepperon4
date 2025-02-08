@@ -16,7 +16,7 @@ public class AttackingUnitServerStrategy : IServerStrategy {
         stateMachineComponent.attackingComponent.Enable();
         stateMachineComponent.animationComponent.SetTrigger(Attacking.TriggerName);
         
-        Debug.Log("Attacking OnEnterState " + stateMachineComponent.transform.name);
+        // Debug.Log("Attacking OnEnterState " + stateMachineComponent.transform.name);
     }
 
     public void OnActiveState(StateMachineComponent stateMachineComponent) {
@@ -49,7 +49,7 @@ public class AttackingUnitServerStrategy : IServerStrategy {
     public void OnExitState(StateMachineComponent stateMachineComponent) {
         stateMachineComponent.attackingComponent.Disable();
         stateMachineComponent.animationComponent.ResetTrigger(Attacking.TriggerName);
-        Debug.Log("Attacking OnExitState " + stateMachineComponent.transform.name);
+        // Debug.Log("Attacking OnExitState " + stateMachineComponent.transform.name);
     }
 }
 }

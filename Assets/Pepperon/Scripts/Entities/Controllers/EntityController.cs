@@ -1,13 +1,30 @@
-﻿using Mirror;
+﻿using System;
+using System.Linq;
+using Mirror;
 using Pepperon.Scripts.Controllers;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Entities;
 using Pepperon.Scripts.Managers;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Pepperon.Scripts.Entities.Controllers {
 public class EntityController : NetworkBehaviour {
     [SyncVar] public EntityId entityId;
-    public int playerType;
+    [SyncVar(hook = nameof(OnPlayerTypeChange))] public int playerType;
+
+    private void Awake() {
+        playerType = -1;
+    }
+
+    private void OnPlayerTypeChange(int oldPlayerType, int newPlayerType) {
+        Image[] images = gameObject.GetComponentsInChildren<Image>();
+        Image specificImage = images.FirstOrDefault(image => image.name == "Fill");
+        if (specificImage)
+            specificImage.color = newPlayerType == PlayerController.localPlayer.playerId
+                ? Color.green
+                : Color.red;
+    }
 
     public Entity entity =>
         isServer

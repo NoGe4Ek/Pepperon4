@@ -15,3 +15,4 @@ MonoBehaviour:
   upgradeName: Melee upgrade
   upgradeDescription: Melee upgrade description
   progressDeltas: 000000000a000000140000001e000000
+  progressCosts: 0000000064000000c80000002c010000
