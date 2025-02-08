@@ -57,7 +57,7 @@ public class StateMachineComponent : NetworkBehaviour {
 
 
     public void OnUnitStateChange(EntityState oldEntityState, EntityState newEntityState) {
-        if (isServer) return;
+        // dedicated if (isServer) return;
         stateStrategy.GetStrategy(oldEntityState).OnExitState(this);
         stateStrategy.GetStrategy(newEntityState).OnEnterState(this);
     }

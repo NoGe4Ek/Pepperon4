@@ -10,7 +10,7 @@ namespace Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Entities {
 [Serializable]
 public enum CommonEntityType {
     MainBuilding,
-    Barak,
+    Barrack,
     Tower,
     Heroes,
     Units

@@ -25,11 +25,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AYellowpaper.SerializedColl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Authenticators", "Mirror.Authenticators.csproj", "{e4687968-ead9-aa1f-dd58-d8e6b011e67a}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{0bca2bcf-2416-ec33-3827-6bd750b9974f}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionTransportEditor", "EncryptionTransportEditor.csproj", "{f9183a9a-3cc8-9ac5-2622-6aa44278e6ce}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telepathy", "Telepathy.csproj", "{513245b1-7156-c029-8b5e-2ca75371f051}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{0bca2bcf-2416-ec33-3827-6bd750b9974f}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.CompilerSymbols", "Mirror.CompilerSymbols.csproj", "{691ccd2a-91d9-33e8-331e-90d58d5f3931}"
 EndProject
@@ -62,12 +62,12 @@ Global
 		{9287e6d5-546d-ab81-0836-c87fbe301079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{e4687968-ead9-aa1f-dd58-d8e6b011e67a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{e4687968-ead9-aa1f-dd58-d8e6b011e67a}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0bca2bcf-2416-ec33-3827-6bd750b9974f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0bca2bcf-2416-ec33-3827-6bd750b9974f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{f9183a9a-3cc8-9ac5-2622-6aa44278e6ce}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{f9183a9a-3cc8-9ac5-2622-6aa44278e6ce}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{513245b1-7156-c029-8b5e-2ca75371f051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{513245b1-7156-c029-8b5e-2ca75371f051}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0bca2bcf-2416-ec33-3827-6bd750b9974f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0bca2bcf-2416-ec33-3827-6bd750b9974f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{691ccd2a-91d9-33e8-331e-90d58d5f3931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{691ccd2a-91d9-33e8-331e-90d58d5f3931}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection

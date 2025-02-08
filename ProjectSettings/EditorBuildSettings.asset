@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Pepperon/Scenes/MainMenu.unity
-    guid: aaa08e0f0ff69bc45b89b75586a7fda3
+  - enabled: 0
+    path: Assets/Pepperon/Scenes/Start.unity
+    guid: 4e829bc3cd908c945a7dc685b70dcda2
   - enabled: 1
     path: Assets/Pepperon/Scenes/NetworkTest.unity
     guid: cf9f0efc9bfeef64ea673ee91a723569

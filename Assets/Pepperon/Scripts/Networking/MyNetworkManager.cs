@@ -6,13 +6,19 @@ using UnityEngine;
 namespace Pepperon.Scripts.Networking {
 public class MyNetworkManager : NetworkManager {
     public override void OnServerAddPlayer(NetworkConnectionToClient conn) {
-        GameObject player = Instantiate(playerPrefab);
-        PlayerController playerController = player.GetComponent<PlayerController>();
-        SessionManager.Instance.players.Add(conn, playerController);
+        Debug.Log("New player connected: " + conn);
         
+        GameObject player = Instantiate(playerPrefab);
         player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
-
         NetworkServer.AddPlayerForConnection(conn, player);
+        
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        SessionManager.Instance.AddPlayer(conn, playerController);
+    }
+
+    public override void OnServerDisconnect(NetworkConnectionToClient conn) {
+        base.OnServerDisconnect(conn);
+        SessionManager.Instance.RemovePlayer(conn);
     }
 }
 }

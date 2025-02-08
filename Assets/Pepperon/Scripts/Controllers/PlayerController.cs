@@ -1,89 +1,96 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Mirror;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Entities;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Upgrades;
 using Pepperon.Scripts.Managers;
+using Pepperon.Scripts.UI;
 using UnityEngine;
+using Race = Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Race;
 
 namespace Pepperon.Scripts.Controllers {
 public class PlayerController : NetworkBehaviour {
-    [SyncVar] public int gold;
+    [SyncVar(hook = nameof(OnGoldChange))] public int gold;
+
+    private void OnGoldChange(int oldGold, int newGold) {
+        OnNewGold?.Invoke(newGold);
+    }
+
     [SerializeField] public RaceProgress progress;
 
-    // not use sync var to avoid sending null at start
-    public Race race;
-    public void SetRace(Race newRace) {
+    public event Action<int, string> OnNewMessage;
+
+    [ClientRpc]
+    public void SendAlert(int targetPlayerId, string message) {
+        OnNewMessage?.Invoke(targetPlayerId, message);
+    }
+
+    public event Action<int> OnNewGold;
+    public static event Action OnLocalPlayerReady;
+
+    [SyncVar(hook = nameof(OnRaceChange))] public Race race;
+
+    private void SetRace(Race newRace) {
+        if (newRace == LoreHolder.Instance.races[1]) return;
         race = newRace;
         progress = newRace.ToProgress();
-        RpcSetRace(newRace);
     }
-    [ClientRpc]
-    private void RpcSetRace(Race newRace) {
-        if (isServer) return;
-        race = newRace;
+    private void OnRaceChange(Race oldRace, Race newRace) {
+        if (newRace == LoreHolder.Instance.races[1]) return;
         progress = newRace.ToProgress();
     }
 
+    [SyncVar(hook = nameof(OnPlayerIdChange))]
     public int playerId;
 
-    public void SetPlayerId(int newPlayerId) {
-        playerId = newPlayerId;
+    [SyncVar] public UserResponse user;
+
+    public void OnPlayerIdChange(int oldPlayerId, int newPlayerId) {
+        if (newPlayerId == -1) return;
         SessionManager.Instance.AddKnownPlayer(newPlayerId);
-        RpcSetPlayerId(newPlayerId);
     }
-    [ClientRpc]
-    private void RpcSetPlayerId(int newPlayerId) {
-        if (isServer) return;
-        playerId = newPlayerId;
-        SessionManager.Instance.AddKnownPlayer(newPlayerId);
+
+    public void Awake() {
+        playerId = -1;
+        race = LoreHolder.Instance.races[1];
     }
 
     public GameObject mainBuilding;
+    public List<GameObject> barracks;
 
     public static PlayerController localPlayer;
-
-    private void Awake() {
-        playerId = -1;
-    }
 
     public override void OnStartLocalPlayer() {
         base.OnStartLocalPlayer();
         localPlayer = this;
+        CmdAuthenticate(PlayerPrefs.GetString("PlayerId"));
+        OnLocalPlayerReady?.Invoke();
     }
+
+    public bool isAuthenticated;
 
     [Command]
-    public void CmdUpgradeMeleeDamage() {
-        Debug.Log("Upgrade melee unit. connectionToClient = " + connectionToClient);
-        UpgradeMeleeDamage();
-        RpcUpgradeMeleeDamage();
-    }
+    private void CmdAuthenticate(string id) {
+        var player = BootManager.Instance.Lobby.players.First(player => player.user.id == id);
+        switch (player.race) {
+            case UI.Race.NONE:
+                break;
+            case UI.Race.HUMANITY:
+                SetRace(LoreHolder.Instance.races[0]);
+                break;
+            case UI.Race.ORC:
+                SetRace(LoreHolder.Instance.races[2]);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
 
-    private void UpgradeMeleeDamage() {
-        var player = SessionManager.Instance.knownPlayers[playerId];
-        var upgrade = player.progress.upgrades[CommonUpgradeType.Melee];
-        upgrade.progress++;
-        var upgradeDelta = player.race.upgrades[CommonUpgradeType.Melee].progressDeltas[upgrade.progress];
+        user = player.user;
+        isAuthenticated = true;
 
-        player.progress.entities[CommonEntityType.Units]
-            .Where(unit =>
-                unit.commonUpgradeTypes
-                    .Any(uType =>
-                        uType == CommonUpgradeType.Melee)
-            )
-            .ToList()
-            .ForEach(unit =>
-                unit.info.OfType<AttackingInfoProgress>()
-                    .First().attack += upgradeDelta
-            );
-    }
-
-    [ClientRpc]
-    public void RpcUpgradeMeleeDamage() {
-        if (isServer) return;
-        UpgradeMeleeDamage();
+        if (BootManager.Instance.Lobby.players.Count == SessionManager.Instance.players.Count
+            && SessionManager.Instance.players.Values.All(p => p.isAuthenticated))
+            SessionManager.Instance.state = true;
     }
 }
 }

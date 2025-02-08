@@ -2,22 +2,16 @@
 using System.Collections;
 using System.Linq;
 using Mirror;
-using Pepperon.Scripts.EditorExtensions.Attributes;
 using Pepperon.Scripts.Entities.Components.AttackingComponents;
 using Pepperon.Scripts.Entities.Controllers;
-using Pepperon.Scripts.Entities.Systems.LoreSystem;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
-using Pepperon.Scripts.ScriptableObjects;
 using Pepperon.Scripts.Units.Data;
-using Pepperon.Scripts.Units.States.AttackingState;
-using Pepperon.Scripts.Units.States.IdleState;
 using Pepperon.Scripts.Utils;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Pepperon.Scripts.Units.Components.AttackingComponents {
 // todo try to not network behaviour
-public abstract class BaseAttackingComponent: NetworkBehaviour{
+public abstract class BaseAttackingComponent : NetworkBehaviour {
     private bool isActive = true;
 
     public void Disable() {
@@ -38,22 +32,26 @@ public abstract class BaseAttackingComponent: NetworkBehaviour{
     [SerializeField] public TempAttackingInfo tempAttackingInfo;
 
     protected float GetAttack() => attackingInfoProgress.attack + tempAttackingInfo.attackDelta;
-    
+
     [SerializeField] public AttackingData attackingData;
     [SerializeField] protected Transform attackRange;
     [SyncVar] public AttackingData.AttackStateEnum attackingState;
-    private void SetAttackingState(AttackingData.AttackStateEnum value) { this.attackingState = value; }
+
+    private void SetAttackingState(AttackingData.AttackStateEnum value) {
+        this.attackingState = value;
+    }
+
     public AttackingData.AttackStateEnum lastLocalAttackingState;
     public bool canAttack = true;
-    
+
     public event Action OnAttackPerformed;
 
     private AnimationComponent animationComponent;
 
     [SerializeField] private bool shouldRotateToTarget;
 
-    [ConditionalDisplay(nameof(shouldRotateToTarget)), SerializeField]
-    private RotationComponent rotationComponent;
+    // [ConditionalDisplay(nameof(shouldRotateToTarget)),
+    [SerializeField] private RotationComponent rotationComponent;
 
     protected virtual void Awake() {
         animationComponent = GetComponent<AnimationComponent>();
@@ -62,15 +60,18 @@ public abstract class BaseAttackingComponent: NetworkBehaviour{
 
     private void Start() {
         attackingInfo = GetComponent<EntityController>().entity.info.OfType<AttackingInfo>().First();
-        attackingInfoProgress = GetComponent<EntityController>().entityProgress.info.OfType<AttackingInfoProgress>().First();
+        attackingInfoProgress =
+            GetComponent<EntityController>().entityProgress.info.OfType<AttackingInfoProgress>().First();
     }
 
     protected virtual void Update() {
         if (!isServer) return;
         if (!isActive) return;
 
-        attackRange.localScale = new Vector3(attackingInfoProgress.attackRange, attackingInfoProgress.attackRange, attackingInfoProgress.attackRange);
-        animationComponent.SetFloat(attackingInfo.attackingAnimationSpeedName, attackingInfoProgress.AttackAnimationMultiplier);
+        attackRange.localScale = new Vector3(attackingInfoProgress.attackRange, attackingInfoProgress.attackRange,
+            attackingInfoProgress.attackRange);
+        animationComponent.SetFloat(attackingInfo.attackingAnimationSpeedName,
+            attackingInfoProgress.AttackAnimationMultiplier);
 
         if (attackingData.currentTarget) {
             if (canAttack && attackingData.currentAttackCoroutine is not { Running: true }) {

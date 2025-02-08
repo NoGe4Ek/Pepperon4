@@ -16,8 +16,13 @@ MonoBehaviour:
   raceDescription: Humanity description
   entities:
     _serializedList:
+    - Key: 0
+      Value:
+      - {fileID: 11400000, guid: c07b4cca71beef9499043a033cd44515, type: 2}
     - Key: 1
       Value:
+      - {fileID: 11400000, guid: e34668597943b4541922f7949635e89f, type: 2}
+      - {fileID: 11400000, guid: e34668597943b4541922f7949635e89f, type: 2}
       - {fileID: 11400000, guid: e34668597943b4541922f7949635e89f, type: 2}
     - Key: 4
       Value:
@@ -30,3 +35,7 @@ MonoBehaviour:
     _serializedList:
     - Key: 0
       Value: {fileID: 11400000, guid: b1e0cbb5ab33e124982fac2a8c0ac592, type: 2}
+    - Key: 1
+      Value: {fileID: 11400000, guid: 14b9cebd33f961e46b36504c360064de, type: 2}
+    - Key: 3
+      Value: {fileID: 11400000, guid: af282d2db9ac9c14e95fe43dd7321276, type: 2}

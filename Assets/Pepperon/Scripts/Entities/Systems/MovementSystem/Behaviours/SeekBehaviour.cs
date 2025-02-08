@@ -38,13 +38,16 @@ public class SeekBehaviour : BaseSteeringBehaviour {
         // }
 
         //First check if we have reached the target
-        // if (movementData.MovementState != MovementData.MovementStateEnum.NotMoving &&
-        //     Vector3.Distance(transform.position, movementData.currentTargetPosition) < movementSo.targetReachedThreshold) {
-        //     //reachedLastTarget = true;
-        //     movementData.currentTarget = null;
-        //     movementData.currentTargetPosition = Vector3.zero;
-        //     return (danger, interest);
-        // }
+        if (movementData.MovementState != MovementData.MovementStateEnum.NotMoving &&
+            Vector3.Distance(transform.position, movementData.currentTargetPosition) < 0.1) {
+            movementData.MovementState = MovementData.MovementStateEnum.PointReached;
+            movementData.currentTarget = null;
+            movementData.currentTargetPosition = Vector3.zero;
+            // reachedLastTarget = true;
+            // movementData.currentTarget = null;
+            // movementData.currentTargetPosition = Vector3.zero;
+            return (danger, interest);
+        }
 
         //If we havent yet reached the target do the main logic of finding the interest directions
         Vector3 directionToTarget = (movementData.currentTargetPosition - transform.position);

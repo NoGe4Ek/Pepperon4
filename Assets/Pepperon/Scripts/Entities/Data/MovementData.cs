@@ -11,7 +11,8 @@ public class MovementData : NetworkBehaviour {
     public enum MovementStateEnum {
         NotMoving,
         MovingToPoint,
-        MovingToTarget
+        MovingToTarget,
+        PointReached
     }
 
     public MovementStateEnum MovementState { set; get; } = MovementStateEnum.NotMoving;
@@ -21,6 +22,6 @@ public class MovementData : NetworkBehaviour {
 
     [SerializeField] public Transform currentTarget;
     [SerializeField] public Vector3 currentTargetPosition;
-    public Transform GetNextPoint() => points[Random.Range(0, points.Count)];
+    public Transform GetNextPoint() => points.First();
 }
 }
