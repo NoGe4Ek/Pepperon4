@@ -519,6 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRegion: {fileID: 8213945659184478849}
   building: {fileID: 8461451666724678726}
+  path: []
 --- !u!114 &8542837607028148980
 MonoBehaviour:
   m_ObjectHideFlags: 0

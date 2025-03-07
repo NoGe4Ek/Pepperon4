@@ -1282,10 +1282,12 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  entity: {fileID: 11400000, guid: 0b575cd2310481d469faa2ecedd832db, type: 2}
+  entityId:
+    entityType: 0
+    entityIndex: 0
+  playerType: 0
   movementComponent: {fileID: 6070875711460122435}
   stateMachineComponent: {fileID: 8587482782631095152}
-  playerType: 0
 --- !u!114 &1732521869105719728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1338,6 +1340,14 @@ MonoBehaviour:
   syncInterval: 0
   isActive: 1
   movementInfo: {fileID: 0}
+  movementInfoProgress:
+    speed: 0
+    acceleration: 0
+    deacceleration: 0
+    agentColliderSize: 0
+    obstacleRange: 0
+    chaseRange: 0
+    targetReachedThreshold: 0
   movementData: {fileID: 1732521869105719728}
   behaviours:
   - {fileID: 1035628593180897808}
@@ -1405,8 +1415,14 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  attackingHolder:
+  attackingInfo: {fileID: 0}
+  attackingInfoProgress:
     attack: 0
+    attackRange: 0
+    attackDelay: 0
+    maxAttackAnimationDuration: 0
+  tempAttackingInfo:
+    attackDelta: 0
   attackingData: {fileID: 777595333140039896}
   attackRange: {fileID: 4040967728950178073}
   attackingState: 0
@@ -1439,11 +1455,13 @@ MonoBehaviour:
       strategy: {fileID: 11400000, guid: 48d73a31d42c18c44a31f54d4db8c982, type: 2}
     - state: {fileID: 11400000, guid: 8ca8b681de99cff4ca82a8d57e786a48, type: 2}
       strategy: {fileID: 11400000, guid: 19eef3168ea63f84eae7ab0c69da99fa, type: 2}
+  previousState: {fileID: 0}
   currentState: {fileID: 11400000, guid: 263b8e5dcb213ee4786f02215b6a1440, type: 2}
   movementComponent: {fileID: 0}
   healthComponent: {fileID: 0}
   attackingComponent: {fileID: 0}
   animationComponent: {fileID: 0}
+  abilityComponent: {fileID: 0}
 --- !u!114 &4818976605106937845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2318,7 +2336,7 @@ Transform:
   m_GameObject: {fileID: 6466243968040830735}
   serializedVersion: 2
   m_LocalRotation: {x: 0.015583074, y: 0.07696201, z: 0.013360313, w: 0.9968227}
-  m_LocalPosition: {x: -0, y: 0.17415929, z: 8.223874e-18}
+  m_LocalPosition: {x: 0, y: 0.17415929, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
