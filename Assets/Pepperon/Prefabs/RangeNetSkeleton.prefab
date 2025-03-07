@@ -188,10 +188,12 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  entity: {fileID: 11400000, guid: 35fb6b8aed61e4e44a07595459b128bf, type: 2}
+  entityId:
+    entityType: 0
+    entityIndex: 0
+  playerType: 0
   movementComponent: {fileID: 2917625485531654178}
   stateMachineComponent: {fileID: 7359224316085849079}
-  playerType: 0
 --- !u!114 &4256179211749727555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +246,14 @@ MonoBehaviour:
   syncInterval: 0
   isActive: 1
   movementInfo: {fileID: 0}
+  movementInfoProgress:
+    speed: 0
+    acceleration: 0
+    deacceleration: 0
+    agentColliderSize: 0
+    obstacleRange: 0
+    chaseRange: 0
+    targetReachedThreshold: 0
   movementData: {fileID: 4256179211749727555}
   behaviours:
   - {fileID: 7849198006895021363}
@@ -311,8 +321,14 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  attackingHolder:
+  attackingInfo: {fileID: 0}
+  attackingInfoProgress:
     attack: 0
+    attackRange: 0
+    attackDelay: 0
+    maxAttackAnimationDuration: 0
+  tempAttackingInfo:
+    attackDelta: 0
   attackingData: {fileID: 8426378209036269944}
   attackRange: {fileID: 7679431318605357160}
   attackingState: 0
@@ -345,11 +361,13 @@ MonoBehaviour:
       strategy: {fileID: 11400000, guid: 48d73a31d42c18c44a31f54d4db8c982, type: 2}
     - state: {fileID: 11400000, guid: 8ca8b681de99cff4ca82a8d57e786a48, type: 2}
       strategy: {fileID: 11400000, guid: 19eef3168ea63f84eae7ab0c69da99fa, type: 2}
+  previousState: {fileID: 0}
   currentState: {fileID: 11400000, guid: 263b8e5dcb213ee4786f02215b6a1440, type: 2}
   movementComponent: {fileID: 0}
   healthComponent: {fileID: 0}
   attackingComponent: {fileID: 0}
   animationComponent: {fileID: 0}
+  abilityComponent: {fileID: 0}
 --- !u!114 &7378510135358885087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
-  _assetId: 2332387754
+  _assetId: 1688171368
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
