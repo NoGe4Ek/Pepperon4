@@ -16,6 +16,6 @@ MonoBehaviour:
   attackRange: 10
   attackDelay: 1
   maxAttackAnimationDuration: 1
-  projectilePrefab: {fileID: 8890346878546827708, guid: c08b7174e865b7241b2dac3c75c50cde,
+  projectilePrefab: {fileID: 8890346878546827708, guid: e018449956cb13641b2543e079468b79,
     type: 3}
   projectileSpeed: 5

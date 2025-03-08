@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414d55956a1c44f3b9552180baf59422, type: 3}
   m_Name: "Barra\u0441k"
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6594238229573214147, guid: 4332646155befa24ca9d4b7264eb2fd9, type: 3}
+  prefab: {fileID: 6594238229573214147, guid: 33118b0609214034f96d5959f52efd18, type: 3}
   info:
   - {fileID: 11400000, guid: b07c34aed9479b74ea962f898df7628a, type: 2}
   - {fileID: 11400000, guid: 1d1a60dd01606534b91935231c565518, type: 2}

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 2819030734636849858, guid: 0af57e2d4e0aec8418283f10bbb6d444, type: 3}
   info:
-  - {fileID: 11400000, guid: 10989d68024fbbe4394b386dac21fa7a, type: 2}
-  - {fileID: 11400000, guid: a234222357bd67643a504dcb6fdfec79, type: 2}
-  - {fileID: 11400000, guid: 5b75c6b04f7773a4bbf0174da09f85bb, type: 2}
-  - {fileID: 11400000, guid: 79c4ce6a26f49c3418235c4278f45094, type: 2}
-  - {fileID: 11400000, guid: 5832b8738f17bff40889fdef2ab885f9, type: 2}
+  - {fileID: 11400000, guid: 446d500d70248bd4db47c83770da7029, type: 2}
+  - {fileID: 11400000, guid: c4523a3a868145e4e93742b27ae8973f, type: 2}
+  - {fileID: 11400000, guid: 05de4168d2bf14641bed44baa363f5c7, type: 2}
+  - {fileID: 11400000, guid: 473a4a4a5e819124bbcb0cf4e66e4318, type: 2}
+  - {fileID: 11400000, guid: 77d51fd59036d804eaa3bbdd6a64944d, type: 2}
   commonUpgradeTypes: 00000000
   upgrades: []
   abilities: []

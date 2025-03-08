@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6594238229573214147, guid: 19072fdb988d8f4459ffd481a61b42eb, type: 3}
   info:
-  - {fileID: 11400000, guid: 376dfbd5da8351640ac70355f34ff384, type: 2}
+  - {fileID: 11400000, guid: 9816a41c9d55f1245b91833649354799, type: 2}
   commonUpgradeTypes: 
   upgrades: []
   abilities: []

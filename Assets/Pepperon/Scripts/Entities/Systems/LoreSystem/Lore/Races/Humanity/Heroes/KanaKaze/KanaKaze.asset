@@ -22,4 +22,4 @@ MonoBehaviour:
   commonUpgradeTypes: 
   upgrades: []
   abilities:
-  - {fileID: 11400000, guid: 5ef3b0ae1c53e074dabb816cfb74b8be, type: 2}
+  - {fileID: 11400000, guid: e352b7ad31e53f743a20f9dc9ff6189c, type: 2}

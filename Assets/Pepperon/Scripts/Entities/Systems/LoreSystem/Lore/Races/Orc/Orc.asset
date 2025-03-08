@@ -13,23 +13,29 @@ MonoBehaviour:
   m_Name: Orc
   m_EditorClassIdentifier: 
   raceName: Orc
-  raceDescription: 
+  raceDescription: Orc description
   entities:
     _serializedList:
     - Key: 0
       Value:
-      - {fileID: 0}
+      - {fileID: 11400000, guid: 3d3416f2218834c4a8f86a02ff1c0928, type: 2}
     - Key: 1
       Value:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
+      - {fileID: 11400000, guid: 1c52ab5280503cf4cae917ed038bd6c1, type: 2}
+      - {fileID: 11400000, guid: 1c52ab5280503cf4cae917ed038bd6c1, type: 2}
+      - {fileID: 11400000, guid: 1c52ab5280503cf4cae917ed038bd6c1, type: 2}
     - Key: 4
       Value:
-      - {fileID: 0}
-      - {fileID: 0}
+      - {fileID: 11400000, guid: b2eb51f292bcccf419c9dc08607fa45a, type: 2}
+      - {fileID: 11400000, guid: 8dab35686bf21bc4dbfbb1950d12477e, type: 2}
     - Key: 3
       Value:
-      - {fileID: 0}
+      - {fileID: 11400000, guid: dabe337e09d425a40b2869ef86705984, type: 2}
   upgrades:
-    _serializedList: []
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 11400000, guid: 5db854061bcaaa04aa819ec0f2412e33, type: 2}
+    - Key: 1
+      Value: {fileID: 11400000, guid: 89ccb0d37f8c55a48907a6384c6f0eaf, type: 2}
+    - Key: 3
+      Value: {fileID: 11400000, guid: f3a7e6e6ecb2a404daa77da37dc06d64, type: 2}

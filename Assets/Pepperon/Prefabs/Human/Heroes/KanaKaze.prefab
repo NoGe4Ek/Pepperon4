@@ -452,7 +452,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2007060924514090100}
   - {fileID: 6053916030647941627}
@@ -619,6 +619,7 @@ MonoBehaviour:
   isChasing: 1
   obstacleRange: {fileID: 1885641414556014951}
   chaseRange: {fileID: 5721293284068594972}
+  directContactRange: {fileID: 4884950471387680366}
   shouldRotateToTarget: 1
   rotationComponent: {fileID: 427667813421073619}
 --- !u!114 &427667813421073619
@@ -662,7 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43391c3a8178469eb61ea81f9957106d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 8911434792362074256}
 --- !u!114 &1419940230822505446
 MonoBehaviour:
   m_ObjectHideFlags: 0
