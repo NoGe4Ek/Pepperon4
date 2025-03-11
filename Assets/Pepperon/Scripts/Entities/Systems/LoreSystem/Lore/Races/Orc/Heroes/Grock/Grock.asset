@@ -22,3 +22,6 @@ MonoBehaviour:
   commonUpgradeTypes: 
   upgrades: []
   abilities: []
+  heroName: Grock
+  heroDescription: Desc
+  icon: {fileID: 21300000, guid: af665faed474b1e41922081c94f691fa, type: 3}

@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Pepperon.Scripts.Utils;
+using NativeWebSocket;
 using Newtonsoft.Json;
+using Pepperon.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.Networking;
-using NativeWebSocket;
 
 namespace Pepperon.Scripts.UI {
     public class HttpClient : MonoBehaviour {
@@ -17,17 +17,14 @@ namespace Pepperon.Scripts.UI {
             Instance = this;
         }
 
-        private string bearerToken;
+        public string bearerToken;
+        public string userId;
         private readonly List<WebSocket> websockets = new();
 
         private async void OnApplicationQuit() {
             foreach (var websocket in websockets) {
                 await websocket.Close();
             }
-        }
-
-        public void SetBearerToken(string token) {
-            bearerToken = token;
         }
 
         private static string BodyToParams(object body) {
@@ -40,14 +37,23 @@ namespace Pepperon.Scripts.UI {
 
             return string.Join("&", parameters.Select(kv => $"{kv.Key}={kv.Value}"));
         }
+        
+        public IEnumerator WssClose() {
+            websockets.RemoveAll(it => it.State == WebSocketState.Closed);
+            foreach (var websocket in websockets) {
+                yield return new Task(CloseWebSocket(websocket));
+            }
+            websockets.Clear();
+        }
 
         public IEnumerator WssSend(ILobbyClientSessionEvent message) {
-            foreach (var webSocket in websockets) {
-                yield return new Task(SendWebSocket(webSocket, message));
+            foreach (var websocket in websockets) {
+                yield return new Task(SendWebSocket(websocket, message));
             }
         }
-        
-        public IEnumerator Wss(string url, object body, Action<IServerSessionEvent> onMessage, Action<string> onError) {
+
+        public IEnumerator Wss(string url, object body, Action<IServerSessionEvent> onMessage, Action<string> onError,
+            Action<WebSocketCloseCode> onClose) {
             WebSocket websocket = new WebSocket(
                 url + "?" + BodyToParams(body),
                 new Dictionary<string, string> {
@@ -62,7 +68,11 @@ namespace Pepperon.Scripts.UI {
                 onError.Invoke(e);
             };
 
-            websocket.OnClose += (e) => { Debug.Log("Connection closed!"); };
+            websocket.OnClose += (e) => {
+                Debug.Log("Connection closed! Reason: " + e);
+                websockets.Remove(websocket);
+                onClose.Invoke(e);
+            };
 
             websocket.OnMessage += (bytes) => {
                 Debug.Log("OnMessage!");
@@ -71,8 +81,6 @@ namespace Pepperon.Scripts.UI {
                 var json = message.Replace("data: ", "");
                 IServerSessionEvent e = Models.ToEvent(json);
                 onMessage?.Invoke(e);
-                if (e is PlayerDisconnected)
-                    new Task(CloseWebSocket(websocket));
             };
 
             yield return new Task(ConnectWebSocket(websocket));
@@ -80,7 +88,7 @@ namespace Pepperon.Scripts.UI {
 
         private IEnumerator SendWebSocket(WebSocket websocket, ILobbyClientSessionEvent message) {
             if (websocket.State != WebSocketState.Open) yield break;
-            
+
             var sendTask = websocket.SendText(Models.ToMessage(message));
             while (!sendTask.IsCompleted)
                 yield return null;
@@ -88,7 +96,7 @@ namespace Pepperon.Scripts.UI {
             if (sendTask.Exception != null)
                 Debug.LogError("WebSocket Send Failed: " + sendTask.Exception.Message);
         }
-        
+
         private IEnumerator ConnectWebSocket(WebSocket websocket) {
             var connectTask = websocket.Connect();
             while (!connectTask.IsCompleted)

@@ -23,3 +23,6 @@ MonoBehaviour:
   upgrades: []
   abilities:
   - {fileID: 11400000, guid: e352b7ad31e53f743a20f9dc9ff6189c, type: 2}
+  heroName: Kana Kaze
+  heroDescription: Desc
+  icon: {fileID: 21300000, guid: be5af91fbbd5a5546b1c8cc1dab1bf86, type: 3}

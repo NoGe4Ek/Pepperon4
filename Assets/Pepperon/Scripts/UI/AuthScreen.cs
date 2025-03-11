@@ -12,11 +12,12 @@ public class AuthScreen : BaseScreen {
     public override void Awake() {
         base.Awake();
         signUpButton.onClick.AddListener(() => {
-            var register = HttpClient.Instance.Post<TokenResponse>("https://www.aphirri.ru/users/register",
+            var register = HttpClient.Instance.Post<AuthResponse>("https://www.aphirri.ru/users/register",
                 new AuthRequest(usernameTextField.text, passwordTextField.text),
                 response => {
                     Debug.Log("Response: " + response.token);
-                    HttpClient.Instance.SetBearerToken(response.token);
+                    HttpClient.Instance.bearerToken = response.token;
+                    HttpClient.Instance.userId = response.userId;
                     
                     ScreenManager.Instance.ShowScreen<LobbiesScreen>();
                 },
@@ -24,11 +25,12 @@ public class AuthScreen : BaseScreen {
             new Task(register);
         });
         loginButton.onClick.AddListener(() => {
-            var login = HttpClient.Instance.Post<TokenResponse>("https://www.aphirri.ru/users/login",
+            var login = HttpClient.Instance.Post<AuthResponse>("https://www.aphirri.ru/users/login",
                 new AuthRequest(usernameTextField.text, passwordTextField.text),
                 response => {
                     Debug.Log("Response: " + response.token);
-                    HttpClient.Instance.SetBearerToken(response.token);
+                    HttpClient.Instance.bearerToken = response.token;
+                    HttpClient.Instance.userId = response.userId;
                     
                     ScreenManager.Instance.ShowScreen<LobbiesScreen>();
                 },
@@ -49,8 +51,9 @@ public class AuthScreen : BaseScreen {
     }
 
     [Serializable]
-    public class TokenResponse {
+    public class AuthResponse {
         public string token;
+        public string userId;
     }
 }
 }

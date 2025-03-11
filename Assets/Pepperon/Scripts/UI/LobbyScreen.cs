@@ -39,8 +39,11 @@ namespace Pepperon.Scripts.UI {
                                 UpdateAll(playerConnected);
                                 break;
                             case PlayerDisconnected playerDisconnected:
-                                LeaveLobby();
-                                ScreenManager.Instance.ShowScreen<LobbiesScreen>();
+                                if (playerDisconnected.UserId != HttpClient.Instance.userId) {
+                                    Destroy(players[playerDisconnected.UserId]);
+                                    players.Remove(playerDisconnected.UserId);
+                                }
+
                                 break;
                             case RaceChanged raceChanged:
                                 UpdateRace(players[raceChanged.UserId], raceChanged.Race);
@@ -50,13 +53,17 @@ namespace Pepperon.Scripts.UI {
                                 PlayerPrefs.SetString("PlayerId", gameStarted.UserId);
                                 PlayerPrefs.Save();
 
-                                SceneManager.LoadScene("NetworkTest");
+                                SceneManager.LoadScene("Match");
                                 break;
                             default:
                                 throw new ArgumentOutOfRangeException();
                         }
                     },
-                    error => { Debug.Log("Error: " + error); });
+                    error => { Debug.Log("Error: " + error); },
+                    code => {
+                        ClearCache();
+                        ScreenManager.Instance.ShowScreen<LobbiesScreen>();
+                    });
                 new Task(createLobbyRequest);
             }
             else {
@@ -70,8 +77,11 @@ namespace Pepperon.Scripts.UI {
                                 UpdateAll(playerConnected);
                                 break;
                             case PlayerDisconnected playerDisconnected:
-                                LeaveLobby();
-                                ScreenManager.Instance.ShowScreen<LobbiesScreen>();
+                                if (playerDisconnected.UserId != HttpClient.Instance.userId) {
+                                    Destroy(players[playerDisconnected.UserId]);
+                                    players.Remove(playerDisconnected.UserId);
+                                }
+
                                 break;
                             case RaceChanged raceChanged:
                                 UpdateRace(players[raceChanged.UserId], raceChanged.Race);
@@ -81,13 +91,18 @@ namespace Pepperon.Scripts.UI {
                                 PlayerPrefs.SetString("PlayerId", gameStarted.UserId);
                                 PlayerPrefs.Save();
 
-                                SceneManager.LoadScene("NetworkTest");
+                                SceneManager.LoadScene("Match");
                                 break;
                             default:
                                 throw new ArgumentOutOfRangeException();
                         }
                     },
-                    error => { Debug.Log("Error: " + error); });
+                    error => { Debug.Log("Error: " + error); },
+                    code => {
+                        ClearCache();
+                        ScreenManager.Instance.ShowScreen<LobbiesScreen>();
+                    }
+                );
                 new Task(joinLobbyRequest);
             }
         }
@@ -101,10 +116,7 @@ namespace Pepperon.Scripts.UI {
                     error => { Debug.Log("Error: " + error); });
                 new Task(startMatchRequest);
             });
-            disconnectButton.onClick.AddListener(() => {
-                LeaveLobby();
-                ScreenManager.Instance.ShowScreen<LobbiesScreen>();
-            });
+            disconnectButton.onClick.AddListener(() => { LeaveLobby(); });
             humanButton.onClick.AddListener(() => { UpdateRace(Race.HUMANITY); });
             orcButton.onClick.AddListener(() => { UpdateRace(Race.ORC); });
         }
@@ -157,10 +169,13 @@ namespace Pepperon.Scripts.UI {
 
         private void LeaveLobby() {
             if (string.IsNullOrEmpty(lobbyId)) return;
-            
+
             var leaveLobbyRequest = HttpClient.Instance.WssSend(new LeaveLobby());
             new Task(leaveLobbyRequest);
+            ClearCache();
+        }
 
+        private void ClearCache() {
             lobbyId = "";
             foreach (var idToInstance in players) {
                 Destroy(idToInstance.Value);
