@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4732877187ef1e941be7d73862cb6ef5, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0380ee8535a9a954fb9f05099b3e9cba, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 87281bbb2945a7b45b24e4f57ae44a29, type: 2}
+  m_Motion: {fileID: 7400000, guid: fe096cf3e0c093b4daa2b39921e229df, type: 2}
   m_Tag: 
   m_SpeedParameter: runningAnimationSpeed
   m_MirrorParameter: 
@@ -72,7 +72,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 89ee26ba3e0a27846a72bda79f79dbc6, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6c66359d41cbae74b91db0dfce79746f, type: 2}
   m_Tag: 
   m_SpeedParameter: attackingAnimationSpeed
   m_MirrorParameter: 
@@ -175,7 +175,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Human_Female_Idle
-  m_Speed: 1
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -187,7 +187,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 96ff052071c45e8498701f6af4cbeda3, type: 2}
+  m_Motion: {fileID: 7400000, guid: bab087a55698a29498356ba17ad42535, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
