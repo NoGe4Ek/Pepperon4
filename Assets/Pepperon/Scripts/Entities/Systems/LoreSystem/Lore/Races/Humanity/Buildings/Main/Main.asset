@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414d55956a1c44f3b9552180baf59422, type: 3}
   m_Name: Main
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8064767398584645027, guid: 9910be2d920420447abc89e76611f356, type: 3}
+  prefab: {fileID: 6594238229573214147, guid: 162aaa1a2e87fd04eb3c9c84d78b9392, type: 3}
   info:
   - {fileID: 11400000, guid: 376dfbd5da8351640ac70355f34ff384, type: 2}
   commonUpgradeTypes: 

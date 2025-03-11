@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414d55956a1c44f3b9552180baf59422, type: 3}
+  m_Name: Main
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6594238229573214147, guid: 19072fdb988d8f4459ffd481a61b42eb, type: 3}
+  info:
+  - {fileID: 11400000, guid: 9816a41c9d55f1245b91833649354799, type: 2}
+  commonUpgradeTypes: 
+  upgrades: []
+  abilities: []

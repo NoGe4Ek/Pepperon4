@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704c9644cd0145b3861bd13176997596, type: 3}
+  m_Name: HumanRange
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 682758493364112835, guid: 38da5d3b820f34444a6b5dbdd4ddc63a, type: 3}
+  info:
+  - {fileID: 11400000, guid: 48dd9c034cca1cc44b5c82b233d17b9f, type: 2}
+  - {fileID: 11400000, guid: 2b5400ef508a4a24985eaf0312e078ee, type: 2}
+  - {fileID: 11400000, guid: 22895517838d17e40911205a362ba37a, type: 2}
+  - {fileID: 11400000, guid: e50f901305927ba4395672e5fb393558, type: 2}
+  - {fileID: 11400000, guid: 7ed351e686fb9d24e88fe9a15bd61b48, type: 2}
+  commonUpgradeTypes: 
+  upgrades: []
+  abilities: []

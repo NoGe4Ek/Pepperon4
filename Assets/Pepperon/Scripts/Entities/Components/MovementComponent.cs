@@ -31,6 +31,7 @@ public class MovementComponent : NetworkBehaviour {
 
     [SerializeField] private Transform obstacleRange;
     [SerializeField] private Transform chaseRange;
+    [SerializeField] private Transform directContactRange;
 
     private AnimationComponent animationComponent;
 
@@ -52,6 +53,7 @@ public class MovementComponent : NetworkBehaviour {
 
         obstacleRange.GetComponent<Renderer>().enabled = false;
         chaseRange.GetComponent<Renderer>().enabled = false;
+        directContactRange.GetComponent<Renderer>().enabled = false;
     }
 
     private void Start() {

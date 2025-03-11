@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704c9644cd0145b3861bd13176997596, type: 3}
+  m_Name: OrcRange
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 682758493364112835, guid: 7cbbcf4b7ea555847bb1af4ebf2de45e, type: 3}
+  info:
+  - {fileID: 11400000, guid: 65fbc426b4f997a4890b3d5140a9092f, type: 2}
+  - {fileID: 11400000, guid: 84b87fc3c6ab7e94b86a12c9e1056f79, type: 2}
+  - {fileID: 11400000, guid: fe39d57c65feb2c4687af78aa0120f9b, type: 2}
+  - {fileID: 11400000, guid: 4460f8e0bf31e9f43aecae9430cd6378, type: 2}
+  - {fileID: 11400000, guid: 386b70f798c4f1f44a0ae25092b20a33, type: 2}
+  commonUpgradeTypes: 
+  upgrades: []
+  abilities: []

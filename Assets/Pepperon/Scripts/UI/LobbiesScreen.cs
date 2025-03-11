@@ -6,124 +6,128 @@ using Newtonsoft.Json.Converters;
 using Pepperon.Scripts.Utils;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using Button = UnityEngine.UI.Button;
 
 namespace Pepperon.Scripts.UI {
-public class LobbiesScreen : BaseScreen {
-    public TMP_Text usernameText;
-    public Button joinButton, createButton, updateButton;
-    public Transform lobbiesContainer;
-    public GameObject lobbyItemPrefab;
+    public class LobbiesScreen : BaseScreen {
+        public TMP_Text usernameText;
+        public Button joinButton, createButton, updateButton;
+        public Transform lobbiesContainer;
+        public GameObject lobbyItemPrefab;
 
-    private readonly Dictionary<string, GameObject> lobbies = new();
+        private readonly Dictionary<string, GameObject> lobbies = new();
 
-    public override void Initialize(object args) {
-        UpdateLobbies();
-    }
+        public override void Initialize(object args) {
+            UpdateLobbies();
+        }
 
-    private void Start() {
-        var profileRequest = HttpClient.Instance.Get<UserResponse>("https://www.aphirri.ru/users/profile",
-            null,
-            response => {
-                Debug.Log("Response: " + response);
-                usernameText.text = response.username;
-            },
-            error => { Debug.Log("Error: " + error); });
-        new Task(profileRequest);
-        
-        createButton.onClick.AddListener(() => {
-            ScreenManager.Instance.ShowScreen<LobbyScreen>();
-        });
-        
-        updateButton.onClick.AddListener(UpdateLobbies);
-    }
+        private void Start() {
+            var profileRequest = HttpClient.Instance.Get<UserResponse>("https://www.aphirri.ru/users/profile",
+                null,
+                response => {
+                    Debug.Log("Response: " + response);
+                    usernameText.text = response.username;
+                },
+                error => { Debug.Log("Error: " + error); });
+            new Task(profileRequest);
 
-    private void UpdateLobbies() {
-        var lobbiesRequest = HttpClient.Instance.Get<LobbiesResponse>("https://www.aphirri.ru/lobbies",
-            null,
-            response => {
-                Debug.Log("Response: " + response);
-                foreach (var lobby in lobbies) {
-                    Destroy(lobby.Value);
-                }
-                lobbies.Clear();
-                if (response.total > 0)
-                    foreach (var lobby in response.items) {
-                        AddLobby(lobby.id, lobby.name, lobby.players.Count, lobby.players.Count);
+            createButton.onClick.AddListener(() => { ScreenManager.Instance.ShowScreen<LobbyScreen>(); });
+
+            updateButton.onClick.AddListener(UpdateLobbies);
+        }
+
+        private void UpdateLobbies() {
+            var lobbiesRequest = HttpClient.Instance.Get<LobbiesResponse>("https://www.aphirri.ru/lobbies",
+                null,
+                response => {
+                    Debug.Log("Response: " + response);
+                    foreach (var lobby in lobbies) {
+                        Destroy(lobby.Value);
                     }
-            },
-            error => { Debug.Log("Error: " + error); });
-        new Task(lobbiesRequest);
+
+                    lobbies.Clear();
+                    if (response.total > 0)
+                        foreach (var lobby in response.items) {
+                            AddLobby(lobby.id, lobby.name, lobby.players.Count, lobby.players.Count);
+                        }
+                },
+                error => { Debug.Log("Error: " + error); });
+            new Task(lobbiesRequest);
+        }
+
+        public void AddLobby(string lobbyId, string lobbyName, int playersCount, int maxPlayers) {
+            var lobbyItem = Instantiate(lobbyItemPrefab, lobbiesContainer);
+            lobbies.Add(lobbyId, lobbyItem);
+            lobbyItem.GetComponentsInChildren<TMP_Text>().First(component => component.name == "NameText").text =
+                lobbyName;
+            lobbyItem.GetComponentsInChildren<TMP_Text>().First(component => component.name == "PlayersCountText")
+                .text = playersCount + "/" + maxPlayers;
+
+            lobbyItem.GetComponent<Button>().onClick.AddListener(() => {
+                Debug.Log("Click on lobby: " + lobbyId);
+                ScreenManager.Instance.ShowScreen<LobbyScreen>(new LobbyScreenArgs { LobbyId = lobbyId });
+            });
+        }
     }
 
-    public void AddLobby(string lobbyId, string lobbyName, int playersCount, int maxPlayers) {
-        var lobbyItem = Instantiate(lobbyItemPrefab, lobbiesContainer);
-        lobbies.Add(lobbyId, lobbyItem);
-        lobbyItem.GetComponentsInChildren<TMP_Text>().First(component => component.name == "NameText").text = lobbyName;
-        lobbyItem.GetComponentsInChildren<TMP_Text>().First(component => component.name == "PlayersCountText").text = playersCount + "/" + maxPlayers;
+    [Serializable]
+    public class CreateLobbyRequest {
+        public string Name { get; set; }
 
-        lobbyItem.GetComponent<Button>().onClick.AddListener(() => {
-            Debug.Log("Click on lobby: " + lobbyId);
-            ScreenManager.Instance.ShowScreen<LobbyScreen>(new LobbyScreenArgs { LobbyId = lobbyId });
-        });
+        public CreateLobbyRequest(string name) {
+            Name = name;
+        }
     }
-}
 
-[Serializable]
-public class CreateLobbyRequest {
-    public string name;
+    [Serializable]
+    public class JoinLobbyRequest {
+        public string Id { get; set; }
 
-    public CreateLobbyRequest(string name) {
-        this.name = name;
+        public JoinLobbyRequest(string id) {
+            Id = id;
+        }
     }
-}
 
-[Serializable]
-public class LobbiesResponse {
-    public List<LobbyResponse> items { get; set; }
-    public int total { get; set; }
-}
+    [Serializable]
+    public class LobbiesResponse {
+        public List<LobbyResponse> items { get; set; }
+        public int total { get; set; }
+    }
 
-[Serializable]
-public class LobbyResponse {
-    public string id { get; set; }
-    public string name { get; set; }
-    public string hostUserId { get; set; }
-    public List<PlayerResponse> players { get; set; }
-}
+    [Serializable]
+    public class LobbyResponse {
+        public string id { get; set; }
+        public string name { get; set; }
+        public string hostUserId { get; set; }
+        public List<PlayerResponse> players { get; set; }
+    }
 
-[Serializable]
-public class PlayerResponse {
-    public UserResponse user { get; set; }
-    public LobbyRole role { get; set; }
-    public Race race { get; set; }
-}
+    [Serializable]
+    public class PlayerResponse {
+        public UserResponse user { get; set; }
+        public LobbyRole role { get; set; }
+        public Race race { get; set; }
+    }
 
-[Serializable]
-public class UserResponse {
-    public string id { get; set; }
-    public string username { get; set; }
-    public int rating { get; set; }
-}
+    [Serializable]
+    public class UserResponse {
+        public string id { get; set; }
+        public string username { get; set; }
+        public int rating { get; set; }
+    }
 
-[Serializable]
-[JsonConverter(typeof(StringEnumConverter))]
-public enum LobbyRole {
-    [JsonProperty("HOST")]
-    HOST,
-    [JsonProperty("MEMBER")]
-    MEMBER
-}
+    [Serializable]
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum LobbyRole {
+        [JsonProperty("HOST")] HOST,
+        [JsonProperty("MEMBER")] MEMBER
+    }
 
-[Serializable]
-[JsonConverter(typeof(StringEnumConverter))]
-public enum Race {
-    [JsonProperty("NONE")]
-    NONE,
-    [JsonProperty("HUMANITY")]
-    HUMANITY,
-    [JsonProperty("ORC")]
-    ORC
-}
+    [Serializable]
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum Race {
+        [JsonProperty("NONE")] NONE,
+        [JsonProperty("HUMANITY")] HUMANITY,
+        [JsonProperty("ORC")] ORC
+    }
 }

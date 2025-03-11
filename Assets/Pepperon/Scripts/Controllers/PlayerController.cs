@@ -19,6 +19,7 @@ public class PlayerController : NetworkBehaviour {
     [SerializeField] public RaceProgress progress;
 
     public event Action<int, string> OnNewMessage;
+    public event Action OnRaceChanged;
 
     [ClientRpc]
     public void SendAlert(int targetPlayerId, string message) {
@@ -38,6 +39,7 @@ public class PlayerController : NetworkBehaviour {
     private void OnRaceChange(Race oldRace, Race newRace) {
         if (newRace == LoreHolder.Instance.races[1]) return;
         progress = newRace.ToProgress();
+        OnRaceChanged?.Invoke();
     }
 
     [SyncVar(hook = nameof(OnPlayerIdChange))]

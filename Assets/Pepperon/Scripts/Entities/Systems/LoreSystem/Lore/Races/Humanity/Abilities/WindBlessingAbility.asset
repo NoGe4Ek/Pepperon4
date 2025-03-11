@@ -15,7 +15,7 @@ MonoBehaviour:
   title: "\u0411\u043B\u0430\u0433\u043E\u0441\u043B\u043E\u0432\u0435\u043D\u0438\u0435
     \u0432\u0435\u0442\u0440\u0430"
   description: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435"
-  info: {fileID: 11400000, guid: 624d143b60dee6c4882011ac09c950ce, type: 2}
+  info: {fileID: 11400000, guid: c75e9f1e63cf793459e0f9b3880d4f4f, type: 2}
   animation: {fileID: 7400000, guid: aefd0d50a22b8aa4bb2bda862cd24a6e, type: 2}
   triggerName: ToCasting1
   behaviourTypeName: Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Abilities.WindBlessing.WindBlessingBehaviour,

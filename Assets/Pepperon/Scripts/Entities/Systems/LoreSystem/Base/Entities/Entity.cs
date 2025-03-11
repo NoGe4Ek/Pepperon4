@@ -17,6 +17,8 @@ public enum CommonEntityType {
 }
 
 public class Entity : ScriptableObject, IProgressable<EntityProgress> {
+    
+    
     public GameObject prefab;
     public List<EntityInfo> info;
 
