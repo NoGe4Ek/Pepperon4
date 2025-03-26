@@ -902,7 +902,7 @@ GameObject:
   - component: {fileID: 6139184576193464787}
   - component: {fileID: 7873216835683157898}
   m_Layer: 0
-  m_Name: Rig_Orc_Heroe_01
+  m_Name: Orc_Heroe_01_Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
