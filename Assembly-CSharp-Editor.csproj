@@ -889,10 +889,6 @@
       <Project>{513245b1-7156-c029-8b5e-2ca75371f051}</Project>
       <Name>Telepathy</Name>
     </ProjectReference>
-    <ProjectReference Include="Mirror.Examples.csproj">
-      <Project>{63a8c982-c98e-0ca4-248f-a3e2c98b81a0}</Project>
-      <Name>Mirror.Examples</Name>
-    </ProjectReference>
     <ProjectReference Include="Edgegap.csproj">
       <Project>{dcca82c9-6b91-4bf3-6e6e-53751d3cbc14}</Project>
       <Name>Edgegap</Name>
