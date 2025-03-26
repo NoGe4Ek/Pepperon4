@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 759543172181679989}
   - component: {fileID: 1593785101451685169}
   - component: {fileID: 6739351376386628972}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: ObstacleRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 1588831993799956789}
   - component: {fileID: 3086762941137517043}
   - component: {fileID: 1691868758811556615}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: DirectContactRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1329,6 +1329,7 @@ MonoBehaviour:
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   onlySyncOnChangeCorrectionMultiplier: 2
+  useFixedUpdate: 0
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
@@ -1539,7 +1540,7 @@ GameObject:
   - component: {fileID: 6058873010261150295}
   - component: {fileID: 4086057298023696857}
   - component: {fileID: 5437408172198847783}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: ChaseRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2014,7 +2015,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8109065780170975422}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Ranges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2311,7 +2312,7 @@ GameObject:
   - component: {fileID: 2375880765291828040}
   - component: {fileID: 2112471137776443346}
   - component: {fileID: 6009786393506691221}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}

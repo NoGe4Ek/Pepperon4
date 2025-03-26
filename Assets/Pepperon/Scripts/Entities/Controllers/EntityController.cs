@@ -3,8 +3,9 @@ using System.Linq;
 using Mirror;
 using Pepperon.Scripts.Controllers;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Entities;
 using Pepperon.Scripts.Managers;
+using Pepperon.Scripts.Systems.LoreSystem.Base;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Entities;
 using UnityEngine;
 using UnityEngine.UI;
 

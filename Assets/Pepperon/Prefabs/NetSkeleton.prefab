@@ -1356,6 +1356,7 @@ MonoBehaviour:
   isChasing: 1
   obstacleRange: {fileID: 538587720802509240}
   chaseRange: {fileID: 252499259860302792}
+  directContactRange: {fileID: 0}
   shouldRotateToTarget: 1
   rotationComponent: {fileID: 7489520534900021733}
 --- !u!114 &7489520534900021733

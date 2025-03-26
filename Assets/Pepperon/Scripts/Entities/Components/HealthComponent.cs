@@ -2,7 +2,7 @@
 using System.Linq;
 using Mirror;
 using Pepperon.Scripts.Entities.Controllers;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Infos;
 using UnityEngine.UI;
 
 namespace Pepperon.Scripts.Entities.Components {

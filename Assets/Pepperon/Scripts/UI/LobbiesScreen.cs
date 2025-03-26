@@ -101,6 +101,17 @@ namespace Pepperon.Scripts.UI {
         public string hostUserId { get; set; }
         public List<PlayerResponse> players { get; set; }
     }
+    
+    [Serializable]
+    public class BotResponse {
+        public string name { get; set; }
+        public Race race { get; set; }
+        
+        public BotResponse(string name, Race race) {
+            this.name = name;
+            this.race = race;
+        }
+    }
 
     [Serializable]
     public class PlayerResponse {

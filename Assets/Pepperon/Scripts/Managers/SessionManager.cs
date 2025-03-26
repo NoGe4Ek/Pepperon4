@@ -2,99 +2,160 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Mirror;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Pepperon.Scripts.Controllers;
 using Pepperon.Scripts.Entities.Components;
 using Pepperon.Scripts.Entities.Controllers;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Entities;
+using Pepperon.Scripts.Networking.Services;
+using Pepperon.Scripts.Systems.LoreSystem.Base;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Entities;
+using Pepperon.Scripts.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Task = Pepperon.Scripts.Utils.Task;
 
 namespace Pepperon.Scripts.Managers {
+public enum GameState {
+    WaitingForPlayers,
+    Setup,
+    InProgress,
+    Paused,
+    Finished
+}
+
 public class SessionManager : NetworkBehaviour {
     public static SessionManager Instance { get; private set; }
-    [SerializeField] public List<Transform> mainBuildingStartPoints;
-    [SerializeField] public List<Transform> pathPoints;
+
+    [SerializeField] private List<Transform> mainBuildingStartPoints;
+    [SerializeField] private List<Transform> pathPoints;
+    private Task gameTimerCoroutine;
+    private float gameTime;
+
+    // List of players (server only).
+    // NetworkConnectionToClient available only on server 
+    public readonly Dictionary<NetworkConnectionToClient, PlayerController> players = new();
+
+    // List of players (client and server).
+    // Store PlayerController for each integer id (order number of player connection)
+    // P.S. Known on client side
+    public readonly Dictionary<int, PlayerController> knownPlayers = new();
+
+    public static event Action<string> OnTimeTick;
+
+
+    [SyncVar(hook = nameof(OnGameTimerChanged))]
+    public string gameTimer;
+
+    private void OnGameTimerChanged(string oldGameTimer, string newGameTimer) {
+        OnTimeTick?.Invoke(newGameTimer);
+    }
 
     [SyncVar(hook = nameof(OnStateChange))]
-    public bool state;
+    public GameState state;
 
-    private void OnStateChange(bool oldState, bool newState) {
-        if (newState)
-            OnGameStart?.Invoke();
-        else
-            OnGameEnd?.Invoke();
+    private void OnStateChange(GameState oldState, GameState newState) {
+        switch (newState) {
+            case GameState.WaitingForPlayers:
+                break;
+            case GameState.Setup:
+                break;
+            case GameState.InProgress:
+                break;
+            case GameState.Paused:
+                break;
+            case GameState.Finished:
+                break;
+        }
     }
 
-    public bool isGameNow = false;
-    public static event Action OnGameEnd;
-    public static event Action OnGameStart;
-    public static event Action OnGameConfigured;
-
-    public static event Action<PlayerController> OnNewPlayer;
-    public static event Action<int> OnNewKnownPlayer;
-    public static event Action<int> OnRemoveKnownPlayer;
-    
-    public readonly Dictionary<NetworkConnectionToClient, PlayerController> players = new();
-    public readonly Dictionary<int, PlayerController> knownPlayers = new();
-    [SyncVar] public int playersCount;
-    
+    // [Server]
     public void AddPlayer(NetworkConnectionToClient conn, PlayerController player) {
-        // Save player connection to controller (on server)
+        // Save player connection to controller (for server needs)
         players.Add(conn, player);
-        // Save player id to controller (on clients)
-        player.playerId = players.Count - 1;
-        AddKnownPlayer(players.Count - 1);
-
-        playersCount++;
-        OnNewPlayer?.Invoke(player);
+        
+        // Save player id to controller (for client needs)
+        // Trigger AddKnownPlayer on clients
+        var playerId = players.Count - 1;
+        player.playerId = playerId;
+        knownPlayers[playerId] = player;
     }
 
+    // [Server]
     public void RemovePlayer(NetworkConnectionToClient conn) {
         var player = players[conn];
         knownPlayers.Remove(player.playerId);
-        OnRemoveKnownPlayer?.Invoke(player.playerId);
         RpcRemoveKnownPlayer(player.playerId);
-        
+
         players.Remove(conn);
-        
-        Debug.Log("Remove player, id = " + player.playerId);
+        if (players.Count( it => !new Regex(@"^bot-\d+$").IsMatch(it.Value.user.id)) == 0)
+            MatchService.EndMatch(
+                new MatchResult(
+                    MatchResultType.ABNORMAL,
+                    DateTimeOffset.UtcNow,
+                    DateTimeOffset.UtcNow,
+                    TimeSpan.FromSeconds(gameTime),
+                    "",
+                    new Dictionary<string, PlayerStatistic>()
+                )
+            );
     }
 
     [ClientRpc]
     private void RpcRemoveKnownPlayer(int playerId) {
-        OnRemoveKnownPlayer?.Invoke(playerId);
+        // todo
     }
 
+    // Find all Controllers on client scene and get one with player's id
+    // [Client]
     public void AddKnownPlayer(int playerId) {
-        var playerController = FindObjectsOfType<PlayerController>()
-            .FirstOrDefault(player => player.playerId == playerId);
+        var playerController =
+            FindObjectsOfType<PlayerController>().FirstOrDefault(player => player.playerId == playerId);
         knownPlayers[playerId] = playerController;
-        OnNewKnownPlayer?.Invoke(playerId);
-
-        Debug.Log("AddKnownPlayer " + playerId);
     }
 
     private void Awake() {
         Instance = this;
-        isGameNow = false;
+        state = GameState.WaitingForPlayers;
     }
 
     private void Start() {
         if (!isServer) return;
-        BattleManager.OnKill += OnPlayerDefeat;
+        BattleManager.OnKill += CheckPlayerDefeat;
     }
 
     private void Update() {
         if (!isServer) return;
-        if (state && !isGameNow) {
+        if (state == GameState.Setup) {
             SetupGame();
+        }
+
+        if (state == GameState.InProgress && (gameTimerCoroutine == null || !gameTimerCoroutine.Running)) {
+            gameTimerCoroutine = new Task(UpdateGameTimer());
+        }
+    }
+
+    private IEnumerator UpdateGameTimer() {
+        float lastUpdateTime = Time.time;
+
+        while (state == GameState.InProgress) {
+            float currentTime = Time.time;
+            gameTime += currentTime - lastUpdateTime;
+            lastUpdateTime = currentTime;
+
+            int minutes = Mathf.FloorToInt(gameTime / 60);
+            int seconds = Mathf.FloorToInt(gameTime % 60);
+
+            gameTimer = $"{minutes:00}:{seconds:00}";
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
     private void SetupGame() {
+        Debug.Log("SetupGame: players - " + players.Values.Count);
         for (var i = 0; i < players.Values.Count; i++) {
             var player = players.Values.ToList()[i];
 
@@ -156,8 +217,7 @@ public class SessionManager : NetworkBehaviour {
             rightBarrackController.entityId = new EntityId(CommonEntityType.Barrack, 2);
         }
 
-        OnGameConfigured?.Invoke();
-        isGameNow = true;
+        state = GameState.InProgress;
     }
 
     private List<Transform> GetPath(Transform startPoint) {
@@ -168,16 +228,22 @@ public class SessionManager : NetworkBehaviour {
         return reorderedList;
     }
 
-    private void SetupUnits() { }
-
-    private void OnPlayerDefeat(GameObject killerObject, GameObject diedObject) {
-        if (players.Any(it => it.Value.mainBuilding == diedObject)) {
-            Debug.Log(diedObject.name + " LOSE");
-            state = false;
-            isGameNow = false;
-            // PlayerController.localPlayer.SendAlert(diedObject.GetComponent<EntityController>().playerType, "You was defeated");
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        }
+    private void CheckPlayerDefeat(GameObject killerObject, GameObject diedObject) {
+        if (!diedObject.TryGetComponent(out BuildingController buildingController)) return;
+        if (players.Count(it => !it.Value.IsPlayerDefeat(diedObject)) != 1) return;
+        
+        state = GameState.Finished;
+        MatchService.EndMatch(
+            new MatchResult(
+                MatchResultType.NORMAL,
+                DateTimeOffset.UtcNow,
+                DateTimeOffset.UtcNow,
+                TimeSpan.FromSeconds(gameTime),
+                players
+                    .First(it => !it.Value.IsPlayerDefeat(diedObject)).Value.user.id,
+                new Dictionary<string, PlayerStatistic>()
+            )
+        );
     }
 }
 }

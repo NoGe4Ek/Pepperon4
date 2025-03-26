@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Pepperon/Scenes/Start.unity
     guid: 4e829bc3cd908c945a7dc685b70dcda2
   - enabled: 1

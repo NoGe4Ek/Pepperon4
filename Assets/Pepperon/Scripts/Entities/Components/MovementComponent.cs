@@ -4,8 +4,8 @@ using System.Linq;
 using Mirror;
 using Pepperon.Scripts.Entities.Controllers;
 using Pepperon.Scripts.Entities.MovementSystem.Behaviours;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
 using Pepperon.Scripts.Managers;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Infos;
 using Pepperon.Scripts.Units.Data;
 using UnityEngine;
 
@@ -124,8 +124,13 @@ public class MovementComponent : NetworkBehaviour {
                 movementData.MovementState = MovementData.MovementStateEnum.MovingToTarget;
             }
             else {
-                if (movementData.MovementState == MovementData.MovementStateEnum.PointReached)
+                if (movementData.MovementState == MovementData.MovementStateEnum.PointReached) {
+                    // todo fix cycle points
+                    var reachedPoint = movementData.points.First();
                     movementData.points.RemoveAt(0);
+                    movementData.points.Add(reachedPoint);
+                }
+
                 movementData.currentTarget = movementData.GetNextPoint();
                 movementData.MovementState = MovementData.MovementStateEnum.MovingToPoint;
             }

@@ -4,7 +4,7 @@ using System.Linq;
 using Mirror;
 using Pepperon.Scripts.Entities.Components.AttackingComponents;
 using Pepperon.Scripts.Entities.Controllers;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Infos;
 using Pepperon.Scripts.Units.Data;
 using Pepperon.Scripts.Utils;
 using UnityEngine;
@@ -59,7 +59,8 @@ public abstract class BaseAttackingComponent : NetworkBehaviour {
     }
 
     private void Start() {
-        attackingInfo = GetComponent<EntityController>().entity.info.OfType<AttackingInfo>().First();
+        attackingInfo =
+            GetComponent<EntityController>().entity.info.OfType<AttackingInfo>().First();
         attackingInfoProgress =
             GetComponent<EntityController>().entityProgress.info.OfType<AttackingInfoProgress>().First();
     }
@@ -77,8 +78,7 @@ public abstract class BaseAttackingComponent : NetworkBehaviour {
             if (canAttack && attackingData.currentAttackCoroutine is not { Running: true }) {
                 attackingData.currentAttackCoroutine = new Task(Attack());
             }
-        }
-        else {
+        } else {
             if (attackingData.targets.Any()) {
                 attackingData.currentTarget = attackingData.targets.FirstOrDefault();
             }

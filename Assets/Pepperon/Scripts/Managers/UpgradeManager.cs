@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Mirror;
-using Pepperon.Scripts.Controllers;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Entities;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Upgrades;
-using UnityEngine;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Entities;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Infos;
 
 namespace Pepperon.Scripts.Managers {
 public class UpgradeManager : NetworkBehaviour {
@@ -76,8 +74,11 @@ public class UpgradeManager : NetworkBehaviour {
         }
     }
 
-    private void CommonUnitsUpgrade(int playerId, CommonUpgradeType upgradeType,
-        Action<EntityProgress, UpgradeProgress, Upgrade> upgradeAction) {
+    private void CommonUnitsUpgrade(
+        int playerId,
+        CommonUpgradeType upgradeType,
+        Action<EntityProgress, UpgradeProgress, Upgrade> upgradeAction
+    ) {
         var player = SessionManager.Instance.knownPlayers[playerId];
         var upgradeProgress = player.progress.upgrades[upgradeType];
         var upgrade = player.race.upgrades[upgradeType];
@@ -87,9 +88,7 @@ public class UpgradeManager : NetworkBehaviour {
 
         player.progress.entities[CommonEntityType.Units]
             .Where(unit =>
-                unit.commonUpgradeTypes
-                    .Any(uType =>
-                        uType == upgradeType)
+                unit.commonUpgradeTypes.Any(uType => uType == upgradeType)
             )
             .ToList()
             .ForEach(unit =>

@@ -110,7 +110,7 @@ namespace Pepperon.Scripts.UI {
         private void Start() {
             startButton.onClick.AddListener(() => {
                 var startMatchRequest = HttpClient.Instance.Post<MatchResponse>(
-                    "https://www.aphirri.ru/matches/" + lobbyId,
+                    "https://www.aphirri.ru/matches/start/" + lobbyId,
                     null,
                     response => { Debug.Log("Response: " + response); },
                     error => { Debug.Log("Error: " + error); });

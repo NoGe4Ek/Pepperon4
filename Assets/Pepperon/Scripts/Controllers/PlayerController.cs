@@ -4,12 +4,38 @@ using System.Linq;
 using Mirror;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base;
 using Pepperon.Scripts.Managers;
+using Pepperon.Scripts.Systems.LoreSystem.Base;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Entities;
 using Pepperon.Scripts.UI;
+using Pepperon.Scripts.Units.Components.StateMachines;
 using UnityEngine;
-using Race = Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Race;
+using Race = Pepperon.Scripts.Systems.LoreSystem.Base.Race;
 
 namespace Pepperon.Scripts.Controllers {
 public class PlayerController : NetworkBehaviour {
+    public GameObject mainBuilding;
+    public readonly SyncList<GameObject> barracks = new();
+    public Dictionary<Hero, bool> heroAvailability;
+
+    public bool IsPlayerDefeat(GameObject diedObject) {
+        if (mainBuilding != diedObject && IsBuildingStillActive(mainBuilding))
+            return false;
+
+        return barracks.All(barrack => barrack == diedObject || !IsBuildingStillActive(barrack));
+    }
+
+    private bool IsBuildingStillActive(GameObject building) {
+        if (building == null) return false;
+
+
+        if (!building.TryGetComponent(out StateMachineComponent stateMachine)) return false;
+        if (stateMachine.IsDying()) return false;
+
+
+        Debug.Log("CheckPlayerDefeat: Building " + building.name + " is alive");
+        return true;
+    }
+
     [SyncVar(hook = nameof(OnGoldChange))] public int gold;
 
     private void OnGoldChange(int oldGold, int newGold) {
@@ -35,7 +61,9 @@ public class PlayerController : NetworkBehaviour {
         if (newRace == LoreHolder.Instance.races[1]) return;
         race = newRace;
         progress = newRace.ToProgress();
+        heroAvailability = newRace.entities[CommonEntityType.Heroes].ToDictionary(hero => hero as Hero, _ => true);
     }
+
     private void OnRaceChange(Race oldRace, Race newRace) {
         if (newRace == LoreHolder.Instance.races[1]) return;
         progress = newRace.ToProgress();
@@ -47,6 +75,7 @@ public class PlayerController : NetworkBehaviour {
 
     [SyncVar] public UserResponse user;
 
+    // [Client]
     public void OnPlayerIdChange(int oldPlayerId, int newPlayerId) {
         if (newPlayerId == -1) return;
         SessionManager.Instance.AddKnownPlayer(newPlayerId);
@@ -56,9 +85,6 @@ public class PlayerController : NetworkBehaviour {
         playerId = -1;
         race = LoreHolder.Instance.races[1];
     }
-
-    public GameObject mainBuilding;
-    public List<GameObject> barracks;
 
     public static PlayerController localPlayer;
 
@@ -74,6 +100,9 @@ public class PlayerController : NetworkBehaviour {
     [Command]
     private void CmdAuthenticate(string id) {
         var player = BootManager.Instance.Lobby.players.First(player => player.user.id == id);
+        user = player.user;
+        isAuthenticated = true;
+        
         switch (player.race) {
             case UI.Race.NONE:
                 break;
@@ -83,16 +112,11 @@ public class PlayerController : NetworkBehaviour {
             case UI.Race.ORC:
                 SetRace(LoreHolder.Instance.races[2]);
                 break;
-            default:
-                throw new ArgumentOutOfRangeException();
         }
-
-        user = player.user;
-        isAuthenticated = true;
 
         if (BootManager.Instance.Lobby.players.Count == SessionManager.Instance.players.Count
             && SessionManager.Instance.players.Values.All(p => p.isAuthenticated))
-            SessionManager.Instance.state = true;
+            SessionManager.Instance.state = GameState.Setup;
     }
 }
 }

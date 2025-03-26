@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Linq;
 using Mirror;
-using Pepperon.Scripts.Controllers;
 using Pepperon.Scripts.Entities.Components;
 using Pepperon.Scripts.Entities.Controllers;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Entities;
+using Pepperon.Scripts.Systems.LoreSystem.Base;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Entities;
 using Pepperon.Scripts.Utils;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Pepperon.Scripts.Managers {
 public class SpawnManager : NetworkBehaviour {
@@ -23,7 +22,8 @@ public class SpawnManager : NetworkBehaviour {
     private void Update() {
         if (!isServer) return;
 
-        if (SessionManager.Instance.isGameNow && (spawnCoroutine == null || !spawnCoroutine.Running)) {
+        if (SessionManager.Instance.state == GameState.InProgress &&
+            (spawnCoroutine == null || !spawnCoroutine.Running)) {
             spawnCoroutine = new Task(WaitAndSpawnUnit());
         }
     }
@@ -60,30 +60,31 @@ public class SpawnManager : NetworkBehaviour {
     }
 
     [Command(requiresAuthority = false)]
-    public void SpawnHero(int playerId) {
+    public void SpawnHero(int playerId, int heroIndex, int selectedBarrackIndex) {
         var player = SessionManager.Instance.knownPlayers[playerId];
-        if (player.gold < 500) {
+        if (player.gold < 0) {
             player.SendAlert(playerId, "Not enough gold for spawn hero. Need: 500");
             return;
         }
 
-        for (var index = 0; index < player.race.entities[CommonEntityType.Heroes].Count; index++) {
-            var hero = player.race.entities[CommonEntityType.Heroes][index];
-            var centerBarrack = player.barracks[0];
-            var barrackSpawnComponent = centerBarrack.GetComponent<SpawnComponent>();
-            var point = barrackSpawnComponent.GetRandomPointInRegion();
+        var selectedBarrack = player.barracks[selectedBarrackIndex];
+        var barrackSpawnComponent = selectedBarrack.GetComponent<SpawnComponent>();
+        var point = barrackSpawnComponent.GetRandomPointInRegion();
 
-            GameObject heroInstance = Instantiate(hero.prefab, point, Quaternion.identity);
-            var unitController = heroInstance.GetComponentInParent<UnitController>();
-            unitController.playerType = player.playerId;
-            unitController.movementComponent.movementData.points.AddRange(barrackSpawnComponent.path);
+        Hero hero = (player.race.entities[CommonEntityType.Heroes][heroIndex] as Hero)!;
+        if (!player.heroAvailability[hero]) return;
+        player.heroAvailability[hero] = false;
+        
+        GameObject heroInstance = Instantiate(hero.prefab, point, Quaternion.identity);
+        var unitController = heroInstance.GetComponentInParent<UnitController>();
+        unitController.playerType = player.playerId;
+        unitController.movementComponent.movementData.points.AddRange(barrackSpawnComponent.path);
 
-            NetworkServer.Spawn(heroInstance, player.connectionToClient);
+        NetworkServer.Spawn(heroInstance, player.connectionToClient);
 
-            unitController.entityId = new EntityId(CommonEntityType.Heroes, index);
+        unitController.entityId = new EntityId(CommonEntityType.Heroes, heroIndex);
 
-            player.gold -= 500;
-        }
+        player.gold -= 0;
     }
 }
 }

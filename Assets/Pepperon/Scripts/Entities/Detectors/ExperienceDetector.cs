@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Pepperon.Scripts.Entities.Components;
 using Pepperon.Scripts.Entities.Controllers;
-using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Infos;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Infos;
 using Pepperon.Scripts.Utils;
 using UnityEngine;
 

@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
-    <DefineConstants>UNITY_2022_3_22;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_LINUX;UNITY_STANDALONE_LINUX;UNITY_STANDALONE;UNITY_STANDALONE_LINUX_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;ENABLE_MODULAR_UNITYENGINE_ASSEMBLIES;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;UNITY_SERVER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;EDGEGAP_PLUGIN_SERVERS;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2022_3_22;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;MIRROR;MIRROR_57_0_OR_NEWER;MIRROR_58_0_OR_NEWER;MIRROR_65_0_OR_NEWER;MIRROR_66_0_OR_NEWER;MIRROR_2022_9_OR_NEWER;MIRROR_2022_10_OR_NEWER;MIRROR_70_0_OR_NEWER;MIRROR_71_0_OR_NEWER;MIRROR_73_OR_NEWER;MIRROR_78_OR_NEWER;MIRROR_79_OR_NEWER;MIRROR_81_OR_NEWER;EDGEGAP_PLUGIN_SERVERS;MIRROR_82_OR_NEWER;MIRROR_83_OR_NEWER;MIRROR_84_OR_NEWER;MIRROR_85_OR_NEWER;MIRROR_86_OR_NEWER;MIRROR_89_OR_NEWER;MIRROR_90_OR_NEWER;MIRROR_93_OR_NEWER;MIRROR_96_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -41,38 +41,34 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\AttackingState\Strategies\UnitStrategy\AttackingUnitClientStrategy.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Abilities\WindBlessing\WindBlessingBehaviour.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\DyingState\Dying.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\CastingState\Strategies\UnitStrategy\CastingUnitServerStrategy.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\DyingState\Strategies\BuildingStrategy\DyingBuildingStrategy.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Utils\OnTriggerDelegator.cs" />
     <Compile Include="Assets\Pepperon\Scripts\UI\ConnectScreen.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\SO\Attacking\Range\RangeAttackingSo.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\MovementSystem\BaseSteeringBehaviour.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\IdleState\Idle.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Utils\RecordFix.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Infos\AttackingInfo.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\MovementSystem\BaseSteeringBehaviour.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Managers\ProjectSettingsManager.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Managers\UpgradeManager.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\ProgressSystem.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\MovementSystem\ContextSolver.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Infos\RangeAttackingInfo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Detectors\DirectContactDetector.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Detectors\ObstacleDetector.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\RunningState\Strategies\UnitStrategy\RunningUnitServerStrategy.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Abilities\Ability.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\SO\RotationSo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\IdleState\Strategies\UnitStrategy\IdleUnitClientStrategy.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Abilities\WindBlessing\WindBlessingBehaviour.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Upgrades\Upgrade.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\_Base\Strategies\IStrategy.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\CastingState\Strategies\UnitStrategy\CastingUnitStrategy.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\AttackingState\Strategies\UnitStrategy\AttackingUnitStrategy.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Abilities\AbilityInfo.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\UI\Interaction\BlinkInteraction.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\CastingState\Casting.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Entities\Hero.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\MovementComponent.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Managers\BattleManager.cs" />
     <Compile Include="Assets\Pepperon\Scripts\UI\BaseScreen.cs" />
@@ -82,61 +78,62 @@
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\DyingState\Strategies\BuildingStrategy\DyingBuildingClientStrategy.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\AnimationComponent.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Networking\Serializers\UnitStateSerializer.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Lore.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Infos\AttackingInfo.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Lore.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Infos\Info.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\DyingState\Strategies\UnitStrategy\DyingUnitStrategy.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Progressable.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\AttackingState\Strategies\UnitStrategy\AttackingUnitServerStrategy.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Race.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Abilities\AttackBoostAbilityInfo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\StateMachineComponent.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\AttackingState\Attacking.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Entities\Entity.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Entities\Entity.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Detectors\ExperienceDetector.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\SO\Attacking\Melee\AttackingSo.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Infos\MovementInfo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\UI\HttpClient.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Managers\GoldManager.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Infos\EntityInfos\EntityInfo.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Entities\Hero.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\RunningState\Running.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Infos\RangeAttackingInfo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\IdleState\Strategies\BuildingStrategy\IdleBuildingServerStrategy.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Controllers\UnitController.cs" />
     <Compile Include="Assets\Pepperon\Scripts\UI\ScreenManager.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\MovementSystem\Behaviours\SeekBehaviour.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\SO\MovementSo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\RotationComponent.cs" />
     <Compile Include="Assets\Pepperon\Scripts\UI\AuthScreen.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Entities\Building.cs" />
     <Compile Include="Assets\Pepperon\Scripts\UI\BaseNetworkScreen.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Utils\TaskManager.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\HealthComponent.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Data\AttackingData.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\IdleState\Strategies\UnitStrategy\IdleUnitServerStrategy.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Infos\MovementInfo.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\SO\UnitSO.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\ProgressSystem.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\DyingState\Strategies\BuildingStrategy\DyingBuildingServerStrategy.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Managers\InteractionManager.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Abilities\Ability.cs" />
     <Compile Include="Assets\RTS_Camera\Demo\DemoScene.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Controllers\EntityController.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\AttackingComponents\RangeAttackingHolder.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Infos\ExperienceInfo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\SpawnComponent.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Managers\UIManager.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\MovementSystem\Behaviours\ObstacleAvoidanceBehaviour.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\AttackingComponents\BaseAttackingComponent.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\DyingState\Strategies\UnitStrategy\DyingUnitClientStrategy.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Controllers\BuildingController.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\SO\HealthSo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Managers\SessionManager.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Progressable.cs" />
     <Compile Include="Assets\RTS_Camera\Demo\TargetSelector.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\IdleState\Strategies\UnitStrategy\IdleUnitStrategy.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\MovementSystem\Behaviours\ObstacleAvoidanceBehaviour.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Infos\RotationInfo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Managers\SpawnManager.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Detectors\ChaseDetector.cs" />
     <Compile Include="Assets\Pepperon\Scripts\UI\LobbiesScreen.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\MovementSystem\ContextSolver.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Infos\SurvivabilityInfo.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Networking\Services\MatchService.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\IdleState\Strategies\BuildingStrategy\IdleBuildingStrategy.cs" />
     <Compile Include="Assets\Pepperon\Scripts\UI\Models.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\ExperienceComponent.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Utils\LookAtPlayer.cs" />
     <Compile Include="Assets\Pepperon\Scripts\UI\MainMenuScreen.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Infos\SurvivabilityInfo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Networking\MyNetworkManager.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Abilities\AttackBoostAbilityInfo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\_Base\Strategies\CompositeStrategy.cs" />
     <Compile Include="Assets\Pepperon\Scripts\SO\ProjectSettingsSO.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Data\MovementData.cs" />
@@ -144,47 +141,58 @@
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\AttackingComponents\RangeAttackingComponent.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Detectors\AttackDetector.cs" />
     <Compile Include="Assets\Pepperon\Scripts\UI\LobbyScreen.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\MovementSystem\Behaviours\SeekBehaviour.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\AbilityComponent.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Upgrades\Upgrade.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\_Base\EntityState.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Abilities\AbilityInfo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\DyingState\Strategies\UnitStrategy\DyingUnitServerStrategy.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Entities\Unit.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Infos\RotationInfo.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Entities\Building.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Infos\ExperienceInfo.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\AttackingComponents\AttackingComponent.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\AttackingComponents\AttackingHolder.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Entities\Unit.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\CastingState\Strategies\UnitStrategy\CastingUnitClientStrategy.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Managers\BootManager.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\_Base\Strategies\IServerStrategy.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\Systems\LoreSystem\Base\Race.cs" />
+    <Compile Include="Assets\Pepperon\Scripts\DI\G.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\Components\ProjectileComponent.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\_Base\Strategies\IClientStrategy.cs" />
-    <Compile Include="Assets\Pepperon\Scripts\Entities\Systems\LoreSystem\Base\Infos\Info.cs" />
     <Compile Include="Assets\Pepperon\Scripts\Entities\States\RunningState\Strategies\UnitStrategy\RunningUnitClientStrategy.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorLight.shader" />
     <None Include="Assets\RTS_Camera\Demo\Projectors\Shaders\ProjectorMultiply.shader" />
+    <None Include="Assets\ScriptTemplates\52-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\RTS_Camera\Demo\Projectors\Guidelines.txt" />
+    <None Include="Assets\Mirror\version.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\ScriptTemplates\56-Mirror__Network Discovery-NewNetworkDiscovery.cs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\ScriptTemplates\51-Mirror__Network Manager With Actions-NewNetworkManagerWithActions.cs.txt" />
+    <None Include="Assets\ScriptTemplates\53-Mirror__Network Behaviour With Actions-NewNetworkBehaviourWithActions.cs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\Mirror\Version.txt" />
     <None Include="Assets\Mirror\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\ScriptTemplates\57-Mirror__Network Transform-NewNetworkTransform.cs.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\ScriptTemplates\52-Mirror__Network Behaviour-NewNetworkBehaviour.cs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Mirror\Notice.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\License.txt" />
+    <None Include="Assets\ScriptTemplates\55-Mirror__Network Room Player-NewNetworkRoomPlayer.cs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\ScriptTemplates\54-Mirror__Custom Interest Management-CustomInterestManagement.cs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\ScriptTemplates\50-Mirror__Network Manager-NewNetworkManager.cs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\ScriptTemplates\54-Mirror__Network Room Manager-NewNetworkRoomManager.cs.txt" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
@@ -195,6 +203,9 @@
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Data\Managed\UnityEngine\UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Data\Managed\UnityEngine\UnityEngine.ARModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AccessibilityModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Data\Managed\UnityEngine\UnityEngine.AccessibilityModule.dll</HintPath>
@@ -967,6 +978,10 @@
     <ProjectReference Include="Telepathy.csproj">
       <Project>{513245b1-7156-c029-8b5e-2ca75371f051}</Project>
       <Name>Telepathy</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Examples.csproj">
+      <Project>{63a8c982-c98e-0ca4-248f-a3e2c98b81a0}</Project>
+      <Name>Mirror.Examples</Name>
     </ProjectReference>
     <ProjectReference Include="Edgegap.csproj">
       <Project>{dcca82c9-6b91-4bf3-6e6e-53751d3cbc14}</Project>

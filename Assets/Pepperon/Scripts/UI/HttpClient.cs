@@ -185,6 +185,7 @@ namespace Pepperon.Scripts.UI {
 
                 if (body != null) {
                     string json = JsonConvert.SerializeObject(body);
+                    Debug.Log("Request to: " + url + "; JSON: " + json);
                     byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
                     request.uploadHandler = new UploadHandlerRaw(bodyRaw);
                     request.SetRequestHeader("Content-Type", "application/json");

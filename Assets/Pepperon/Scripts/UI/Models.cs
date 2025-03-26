@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 
 namespace Pepperon.Scripts.UI {
@@ -61,6 +63,43 @@ namespace Pepperon.Scripts.UI {
         public GameStarted(string userId) {
             UserId = userId;
         }
+    }
+
+    [Serializable]
+    public class MatchResult {
+        public MatchResultType type;
+        public String startTime;
+        public String endTime;
+        public int duration;
+        public string winnerId;
+        public Dictionary<string, PlayerStatistic> playerStatistics;
+
+        public MatchResult(MatchResultType type, DateTimeOffset startTime, DateTimeOffset endTime, TimeSpan duration,
+            string winnerId, Dictionary<string, PlayerStatistic> playerStatistics) {
+            this.type = type;
+            this.startTime = startTime.ToString("yyyy-MM-ddTHH:mm:ss.ffffffZ");
+            this.endTime = endTime.ToString("yyyy-MM-ddTHH:mm:ss.ffffffZ");
+            this.duration = Convert.ToInt32(Math.Floor(duration.TotalSeconds));
+            this.winnerId = winnerId;
+            this.playerStatistics = playerStatistics;
+        }
+    }
+
+    [Serializable]
+    public class PlayerStatistic {
+        public int TotalGold { get; set; }
+
+        public PlayerStatistic(int totalGold) {
+            TotalGold = totalGold;
+        }
+    }
+
+    [Serializable]
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum MatchResultType {
+        [JsonProperty("NORMAL")] NORMAL,
+
+        [JsonProperty("ABNORMAL")] ABNORMAL
     }
 
     class Models {
