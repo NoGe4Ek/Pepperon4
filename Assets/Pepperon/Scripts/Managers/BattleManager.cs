@@ -32,7 +32,7 @@ public class BattleManager : MonoBehaviour {
         if (!diedObject.TryGetComponent(out EntityController entityController)) return;
         var hero = entityController.entity as Hero;
         if (hero == null) return;
-        SessionManager.Instance.knownPlayers[entityController.playerType].heroAvailability[hero] = true;
+        SessionManager.Instance.knownPlayers[entityController.playerType].heroes[hero] = null;
     }
 }
 }

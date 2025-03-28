@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using Mirror;
 using Pepperon.Scripts.Controllers;
 using Pepperon.Scripts.Entities.Components;
@@ -11,6 +12,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Pepperon.Scripts.Managers {
 public class UIManager : NetworkBehaviour {
@@ -103,11 +105,32 @@ public class UIManager : NetworkBehaviour {
             heroItem.GetComponentsInChildren<Image>().First(component => component.name == "HeroIcon")
                 .sprite = hero.icon;
             heroItem.GetComponentsInChildren<Button>().First().onClick.AddListener(() => {
-                InteractionManager.Instance.EnterChooseBarrackMode(heroIndex);
+                if (PlayerController.localPlayer.heroes[hero] == null) {
+                    InteractionManager.Instance.EnterChooseBarrackMode(heroIndex);
+                    
+                }
+                else {
+                    new Task(SmoothCameraMove(PlayerController.localPlayer.heroes[hero].transform.position));
+                }
             });
 
             heroItems[hero] = heroItem;
         }
+    }
+    private IEnumerator SmoothCameraMove(Vector3 targetPosition, float duration = 1f) {
+        Camera mainCamera = Camera.main;
+        if (mainCamera == null) yield break;
+    
+        Vector3 startPosition = mainCamera.transform.position;
+        float elapsedTime = 0f;
+    
+        while (elapsedTime < duration) {
+            mainCamera.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    
+        mainCamera.transform.position = targetPosition;
     }
 
     private void Start() {

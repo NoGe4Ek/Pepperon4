@@ -14,6 +14,7 @@ using Pepperon.Scripts.Networking.Services;
 using Pepperon.Scripts.Systems.LoreSystem.Base;
 using Pepperon.Scripts.Systems.LoreSystem.Base.Entities;
 using Pepperon.Scripts.UI;
+using Unity.VisualScripting;
 using UnityEngine;
 using Task = Pepperon.Scripts.Utils.Task;
 
@@ -42,7 +43,7 @@ public class SessionManager : NetworkBehaviour {
     // Store PlayerController for each integer id (order number of player connection)
     // P.S. Known on client side
     public readonly Dictionary<int, PlayerController> knownPlayers = new();
-
+ 
     public static event Action<string> OnTimeTick;
 
 
@@ -215,6 +216,10 @@ public class SessionManager : NetworkBehaviour {
             centerBarrackController.entityId = new EntityId(CommonEntityType.Barrack, 0);
             leftBarrackController.entityId = new EntityId(CommonEntityType.Barrack, 1);
             rightBarrackController.entityId = new EntityId(CommonEntityType.Barrack, 2);
+
+            foreach (var hero in player.race.entities[CommonEntityType.Heroes]) {
+                player.heroes[(hero as Hero)!] = null;
+            }
         }
 
         state = GameState.InProgress;

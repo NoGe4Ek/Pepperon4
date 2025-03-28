@@ -15,7 +15,7 @@ namespace Pepperon.Scripts.Controllers {
 public class PlayerController : NetworkBehaviour {
     public GameObject mainBuilding;
     public readonly SyncList<GameObject> barracks = new();
-    public Dictionary<Hero, bool> heroAvailability;
+    public readonly SyncDictionary<Hero, GameObject> heroes = new();
 
     public bool IsPlayerDefeat(GameObject diedObject) {
         if (mainBuilding != diedObject && IsBuildingStillActive(mainBuilding))
@@ -61,7 +61,6 @@ public class PlayerController : NetworkBehaviour {
         if (newRace == LoreHolder.Instance.races[1]) return;
         race = newRace;
         progress = newRace.ToProgress();
-        heroAvailability = newRace.entities[CommonEntityType.Heroes].ToDictionary(hero => hero as Hero, _ => true);
     }
 
     private void OnRaceChange(Race oldRace, Race newRace) {
