@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Melee upgrade
   upgradeDescription: Melee upgrade description
+  icon: {fileID: 21300000, guid: 287de478ab085ec44bb316d47381dae4, type: 3}
   progressDeltas: 000000000a000000140000001e000000
   progressCosts: 0000000064000000c80000002c010000
+  progressTimes: 000000000a0000001e0000003c000000

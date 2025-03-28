@@ -62,7 +62,7 @@ public abstract class BaseAttackingComponent : NetworkBehaviour {
         attackingInfo =
             GetComponent<EntityController>().entity.info.OfType<AttackingInfo>().First();
         attackingInfoProgress =
-            GetComponent<EntityController>().entityProgress.info.OfType<AttackingInfoProgress>().First();
+            GetComponent<EntityController>().entityProgress().info.OfType<AttackingInfoProgress>().First();
     }
 
     protected virtual void Update() {

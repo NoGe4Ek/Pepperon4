@@ -32,12 +32,23 @@ public class EntityController : NetworkBehaviour {
             ? SessionManager.Instance.players[connectionToClient].race.entities[entityId.entityType]
                 [entityId.entityIndex]
             : PlayerController.localPlayer.race.entities[entityId.entityType][entityId.entityIndex];
-    
 
-    public EntityProgress entityProgress =>
-        isServer
-            ? SessionManager.Instance.players[connectionToClient].progress.entities[entityId.entityType]
-                [entityId.entityIndex]
-            : PlayerController.localPlayer.progress.entities[entityId.entityType][entityId.entityIndex];
+
+    public EntityProgress entityProgress() {
+        Debug.Log(
+            "ENTITY PROGRESS: PlayerId - " + PlayerController.localPlayer.playerId +
+            ", Progress - " + PlayerController.localPlayer.progress.GetHashCode() +
+            ", Local player - " + PlayerController.localPlayer.GetHashCode()
+            );
+        if (isServer)
+            return SessionManager.Instance.players[connectionToClient].progress.entities[entityId.entityType]
+                [entityId.entityIndex];
+        if (isOwned) {
+            return PlayerController.localPlayer.progress.entities[entityId.entityType][entityId.entityIndex];
+        }
+
+        return SessionManager.Instance.knownPlayers[playerType].progress.entities[entityId.entityType][entityId.entityIndex];
+
+    }
 }
 }

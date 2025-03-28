@@ -30,6 +30,11 @@ public class UIManager : NetworkBehaviour {
     public GameObject heroItemPrefab;
     private readonly Dictionary<Hero, GameObject> heroItems = new();
 
+    public Transform primaryUpgradesParent;
+    public Transform secondaryUpgradesParent;
+    public GameObject upgradeItemPrefab;
+    private readonly Dictionary<CommonUpgradeType, GameObject> upgradeItems = new();
+
     private void Awake() {
         PlayerController.OnLocalPlayerReady += () => {
             PlayerController.localPlayer.OnNewGold += gold => goldTextView.text = gold.ToString();
@@ -46,10 +51,47 @@ public class UIManager : NetworkBehaviour {
             if (PlayerController.localPlayer.playerId != playerId) return;
             heroItems[hero].GetComponentsInChildren<TMP_Text>().First().text = level.ToString();
         };
+        UpgradeManager.OnUpgradeEnd += (playerId, upgradeType) => {
+            if (PlayerController.localPlayer.playerId != playerId) return;
+            upgradeItems[upgradeType].GetComponentsInChildren<Slider>().First().value = 0f;
+            upgradeItems[upgradeType].GetComponentsInChildren<Button>().First().interactable = true;
+        };
     }
 
     private void InitUpgradesTab() {
-        
+        foreach (var (upgradeType, upgrade) in PlayerController.localPlayer.race.upgrades) {
+            var upgradeItem = Instantiate(upgradeItemPrefab, primaryUpgradesParent);
+            upgradeItem.GetComponentsInChildren<Image>().First(component => component.name == "UpgradeIcon").sprite =
+                upgrade.icon;
+            upgradeItem.GetComponentsInChildren<Button>().First().onClick.AddListener(() => { 
+                // Local check (todo disable button if not allowed)
+                var upgradeProgress = PlayerController.localPlayer.progress.upgrades[upgradeType];
+                if (upgradeProgress.progress + 1 > upgrade.progressCosts.Length - 1) return;
+                if (PlayerController.localPlayer.gold < upgrade.progressCosts[upgradeProgress.progress + 1]) return;
+                
+                // Request server to upgrade
+                UpgradeManager.Instance.CmdUpgrade(PlayerController.localPlayer.playerId, upgradeType);
+                // Local start slider progress
+                var progressTime = upgrade.progressTimes[upgradeProgress.progress + 1];
+                new Task(PeriodicFunction(progressTime, 1f, progress => {
+                    upgradeItem.GetComponentsInChildren<Slider>().First().value = progress / progressTime;
+                }));
+                // Disable button
+                upgradeItem.GetComponentsInChildren<Button>().First().interactable = false;
+            });
+            
+            upgradeItems[upgradeType] = upgradeItem;
+        }
+    }
+
+    private IEnumerator PeriodicFunction(float totalDuration, float interval, System.Action<float> action) {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < totalDuration) {
+            action.Invoke(elapsedTime);
+            yield return new WaitForSeconds(interval);
+            elapsedTime += interval;
+        }
     }
 
     private void InitHeroesTab() {

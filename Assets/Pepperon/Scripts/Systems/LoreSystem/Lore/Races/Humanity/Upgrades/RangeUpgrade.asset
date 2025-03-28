@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Range upgrade
   upgradeDescription: Range upgrade description
+  icon: {fileID: 21300000, guid: 116ee2d9b23bb8947ab2f2362ec63318, type: 3}
   progressDeltas: 00000000050000000a0000000f000000
   progressCosts: 0000000064000000c80000002c010000
+  progressTimes: 000000000a0000001e0000003c000000

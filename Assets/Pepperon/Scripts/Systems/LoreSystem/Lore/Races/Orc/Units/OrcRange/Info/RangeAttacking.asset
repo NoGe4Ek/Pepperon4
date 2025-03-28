@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d2bb7706db4bef9a9ecd3530afd203, type: 3}
   m_Name: RangeAttacking
   m_EditorClassIdentifier: 
-  attack: 60
+  attack: 15
   attackRange: 10
   attackDelay: 1
   maxAttackAnimationDuration: 1

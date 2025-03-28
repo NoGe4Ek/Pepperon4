@@ -15,7 +15,7 @@ public class HealthComponent : NetworkBehaviour {
 
     private void Start() {
         survivabilityInfo = GetComponent<EntityController>().entity.info.OfType<SurvivabilityInfo>().First();
-        survivabilityInfoProgress = GetComponent<EntityController>().entityProgress.info.OfType<SurvivabilityInfoProgress>().First();
+        survivabilityInfoProgress = GetComponent<EntityController>().entityProgress().info.OfType<SurvivabilityInfoProgress>().First();
         currentHealth = survivabilityInfoProgress.maxHealth;
     }
 

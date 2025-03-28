@@ -1,14 +1,20 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using Mirror;
+using Pepperon.Scripts.Controllers;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Upgrades;
 using Pepperon.Scripts.Systems.LoreSystem.Base.Entities;
 using Pepperon.Scripts.Systems.LoreSystem.Base.Infos;
+using Pepperon.Scripts.Utils;
+using UnityEngine;
 
 namespace Pepperon.Scripts.Managers {
 public class UpgradeManager : NetworkBehaviour {
     public static UpgradeManager Instance { get; private set; }
 
+    public static event Action<int, CommonUpgradeType> OnUpgradeEnd;
+    
     private void Awake() {
         Instance = this;
     }
@@ -30,6 +36,13 @@ public class UpgradeManager : NetworkBehaviour {
             return;
         }
 
+        player.gold -= upgrade.progressCosts[upgradeProgress.progress + 1];
+        var progressTime = upgrade.progressTimes[upgradeProgress.progress + 1];
+        new Task(WaitAndUpgrade(progressTime, playerId, upgradeType));
+    }
+
+    private IEnumerator WaitAndUpgrade(int progressTime, int playerId, CommonUpgradeType upgradeType) {
+        yield return new WaitForSeconds(progressTime);
         Upgrade(playerId, upgradeType);
         RpcUpgrade(playerId, upgradeType);
     }
@@ -38,6 +51,7 @@ public class UpgradeManager : NetworkBehaviour {
     private void RpcUpgrade(int playerId, CommonUpgradeType upgradeType) {
         // dedicated if (isServer) return;
         Upgrade(playerId, upgradeType);
+        OnUpgradeEnd?.Invoke(playerId, upgradeType);
     }
 
     private void Upgrade(int playerId, CommonUpgradeType upgradeType) {
@@ -83,8 +97,6 @@ public class UpgradeManager : NetworkBehaviour {
         var upgradeProgress = player.progress.upgrades[upgradeType];
         var upgrade = player.race.upgrades[upgradeType];
         upgradeProgress.progress++;
-        if (isServer)
-            player.gold -= upgrade.progressCosts[upgradeProgress.progress];
 
         player.progress.entities[CommonEntityType.Units]
             .Where(unit =>

@@ -173,7 +173,7 @@ public class SessionManager : NetworkBehaviour {
                 centerBarrackPosition, lookRotation);
             var centerBarrackController = centerBarrack.GetComponent<BuildingController>();
             centerBarrack.GetComponent<SpawnComponent>().path = new List<Transform> {
-                mainBuildingStartPoints[(i + 1) % players.Count]
+                mainBuildingStartPoints[(i + players.Count / 2) % players.Count]
             };
 
             Quaternion leftBarrackRotation = lookRotation * Quaternion.Euler(0, -90, 0);

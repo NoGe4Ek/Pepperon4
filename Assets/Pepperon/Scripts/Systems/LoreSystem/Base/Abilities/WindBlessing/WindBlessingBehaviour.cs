@@ -36,7 +36,7 @@ public class WindBlessingBehaviour : AbilityBehaviour {
             entityController.entity.abilities.First(it => it.BehaviourType == typeof(WindBlessingBehaviour)).info as
                 AttackBoostAbilityInfo;
         abilityInfoProgress =
-            entityController.entityProgress.abilities.First(it => it.BehaviourType == typeof(WindBlessingBehaviour))
+            entityController.entityProgress().abilities.First(it => it.BehaviourType == typeof(WindBlessingBehaviour))
                 .progress as AttackBoostAbilityInfoProgress;
 
         attackingComponent.OnAttackPerformed += () => {

@@ -39,10 +39,11 @@ public class SpawnManager : NetworkBehaviour {
 
             for (var unitIndex = 0; unitIndex < player.race.entities[CommonEntityType.Units].Count; unitIndex++) {
                 var unit = player.race.entities[CommonEntityType.Units][unitIndex];
-                for (var barrackIndex = 0;
-                     barrackIndex < player.race.entities[CommonEntityType.Barrack].Count;
-                     barrackIndex++) {
+                
+                for (var barrackIndex = 0; barrackIndex < player.race.entities[CommonEntityType.Barrack].Count; barrackIndex++) {
                     var barrack = player.barracks[barrackIndex];
+                    if(barrack == null) continue;
+                    
                     var barrackSpawnComponent = barrack.GetComponent<SpawnComponent>();
                     var point = barrackSpawnComponent.GetRandomPointInRegion();
 
@@ -50,10 +51,9 @@ public class SpawnManager : NetworkBehaviour {
                     var unitController = unitInstance.GetComponentInParent<UnitController>();
                     unitController.movementComponent.movementData.points.AddRange(barrackSpawnComponent.path);
                     unitController.playerType = player.playerId;
+                    unitController.entityId = new EntityId(CommonEntityType.Units, unitIndex);
 
                     NetworkServer.Spawn(unitInstance, player.connectionToClient);
-
-                    unitController.entityId = new EntityId(CommonEntityType.Units, unitIndex);
                 }
             }
         }
@@ -62,7 +62,7 @@ public class SpawnManager : NetworkBehaviour {
     [Command(requiresAuthority = false)]
     public void SpawnHero(int playerId, int heroIndex, int selectedBarrackIndex) {
         var player = SessionManager.Instance.knownPlayers[playerId];
-        if (player.gold < 0) {
+        if (player.gold < 500) {
             player.SendAlert(playerId, "Not enough gold for spawn hero. Need: 500");
             return;
         }
@@ -84,7 +84,7 @@ public class SpawnManager : NetworkBehaviour {
 
         unitController.entityId = new EntityId(CommonEntityType.Heroes, heroIndex);
 
-        player.gold -= 0;
+        player.gold -= 500;
     }
 }
 }

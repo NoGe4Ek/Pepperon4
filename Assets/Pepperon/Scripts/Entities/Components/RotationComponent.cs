@@ -11,7 +11,7 @@ namespace Pepperon.Scripts.Units.Components {
 
         private void Start() {
             rotationInfo = GetComponent<EntityController>().entity.info.OfType<RotationInfo>().First();
-            rotationInfoProgress = GetComponent<EntityController>().entityProgress.info.OfType<RotationInfoProgress>()
+            rotationInfoProgress = GetComponent<EntityController>().entityProgress().info.OfType<RotationInfoProgress>()
                 .First();
         }
 

@@ -35,7 +35,7 @@ public class AbilityComponent : NetworkBehaviour {
 
     private void Start() {
         abilities = GetComponent<EntityController>().entity.abilities;
-        abilitiesProgress = GetComponent<EntityController>().entityProgress.abilities;
+        abilitiesProgress = GetComponent<EntityController>().entityProgress().abilities;
 
         // var behaviourType = abilities.First().BehaviourType;
         // abilityBehaviour = GetComponent(behaviourType) as AbilityBehaviour;

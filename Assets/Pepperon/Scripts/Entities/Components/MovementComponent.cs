@@ -59,7 +59,7 @@ public class MovementComponent : NetworkBehaviour {
     private void Start() {
         movementInfo = GetComponent<EntityController>().entity.info.OfType<MovementInfo>().First();
         movementInfoProgress =
-            GetComponent<EntityController>().entityProgress.info.OfType<MovementInfoProgress>().First();
+            GetComponent<EntityController>().entityProgress().info.OfType<MovementInfoProgress>().First();
     }
 
     private void FixedUpdate() {
