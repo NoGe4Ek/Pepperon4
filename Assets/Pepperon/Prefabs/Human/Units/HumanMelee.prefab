@@ -894,6 +894,7 @@ GameObject:
   - component: {fileID: 8587482782631095152}
   - component: {fileID: 4818976605106937845}
   - component: {fileID: 2525672897218086977}
+  - component: {fileID: 1021745516186532750}
   m_Layer: 6
   m_Name: HumanMelee
   m_TagString: Untagged
@@ -1258,6 +1259,18 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &1021745516186532750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2819030734636849858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c3fcbe988946c594e15af46bbee6de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2875654757539628851
 GameObject:
   m_ObjectHideFlags: 0

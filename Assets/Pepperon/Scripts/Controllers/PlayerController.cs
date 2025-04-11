@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Mirror;
+using Pepperon.Scripts.DI;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base;
 using Pepperon.Scripts.Managers;
 using Pepperon.Scripts.Systems.LoreSystem.Base;
@@ -13,10 +14,31 @@ using Race = Pepperon.Scripts.Systems.LoreSystem.Base.Race;
 
 namespace Pepperon.Scripts.Controllers {
 public class PlayerController : NetworkBehaviour {
-    public GameObject mainBuilding;
+    [SyncVar] public UserResponse user;
+    [SyncVar(hook = nameof(OnPlayerIdChange))] public int playerId;
+    [SyncVar(hook = nameof(OnMainBuildingChange))] public GameObject mainBuilding;
+    [SyncVar(hook = nameof(OnGoldChange))] public int gold;
+    [SyncVar(hook = nameof(OnRaceChange))] public Race race;
     public readonly SyncList<GameObject> barracks = new();
-    public readonly SyncDictionary<Hero, GameObject> heroes = new();
-
+    public readonly SyncDictionary<int, GameObject> heroes = new();
+    
+    public static PlayerController localPlayer;
+    public bool isAuthenticated;
+    [SerializeField] public RaceProgress progress;
+    
+    public event Action<int, string> OnNewMessage;
+    public event Action OnRaceChanged;
+    public event Action<int> OnNewGold;
+    public static event Action OnLocalPlayerReady;
+    
+    // fix hook to setup point
+    private void OnMainBuildingChange(GameObject oldMainBuilding, GameObject newMainBuilding) {
+        var startCameraPosition = newMainBuilding.transform.position;
+        startCameraPosition.y = G.Instance.mainCamera.transform.position.y;
+        startCameraPosition.z -= 20f;
+        MinimapManager.Instance.lastCameraTarget = startCameraPosition;
+    }
+    
     public bool IsPlayerDefeat(GameObject diedObject) {
         if (mainBuilding != diedObject && IsBuildingStillActive(mainBuilding))
             return false;
@@ -36,27 +58,15 @@ public class PlayerController : NetworkBehaviour {
         return true;
     }
 
-    [SyncVar(hook = nameof(OnGoldChange))] public int gold;
-
     private void OnGoldChange(int oldGold, int newGold) {
         OnNewGold?.Invoke(newGold);
     }
-
-    [SerializeField] public RaceProgress progress;
-
-    public event Action<int, string> OnNewMessage;
-    public event Action OnRaceChanged;
 
     [ClientRpc]
     public void SendAlert(int targetPlayerId, string message) {
         OnNewMessage?.Invoke(targetPlayerId, message);
     }
-
-    public event Action<int> OnNewGold;
-    public static event Action OnLocalPlayerReady;
-
-    [SyncVar(hook = nameof(OnRaceChange))] public Race race;
-
+    
     private void SetRace(Race newRace) {
         if (newRace == LoreHolder.Instance.races[1]) return;
         race = newRace;
@@ -69,11 +79,6 @@ public class PlayerController : NetworkBehaviour {
         OnRaceChanged?.Invoke();
     }
 
-    [SyncVar(hook = nameof(OnPlayerIdChange))]
-    public int playerId;
-
-    [SyncVar] public UserResponse user;
-
     // [Client]
     public void OnPlayerIdChange(int oldPlayerId, int newPlayerId) {
         if (newPlayerId == -1) return;
@@ -85,16 +90,12 @@ public class PlayerController : NetworkBehaviour {
         race = LoreHolder.Instance.races[1];
     }
 
-    public static PlayerController localPlayer;
-
     public override void OnStartLocalPlayer() {
         base.OnStartLocalPlayer();
         localPlayer = this;
         CmdAuthenticate(PlayerPrefs.GetString("PlayerId"));
         OnLocalPlayerReady?.Invoke();
     }
-
-    public bool isAuthenticated;
 
     [Command]
     private void CmdAuthenticate(string id) {

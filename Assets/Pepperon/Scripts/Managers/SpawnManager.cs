@@ -72,7 +72,8 @@ public class SpawnManager : NetworkBehaviour {
         var point = barrackSpawnComponent.GetRandomPointInRegion();
 
         Hero hero = (player.race.entities[CommonEntityType.Heroes][heroIndex] as Hero)!;
-        if (!player.heroes[hero]) return;
+        Debug.Log("SpawnHero: hero - " + player.heroes[heroIndex]);
+        if (player.heroes[heroIndex] != null) return;
         
         GameObject heroInstance = Instantiate(hero.prefab, point, Quaternion.identity);
         var unitController = heroInstance.GetComponentInParent<UnitController>();
@@ -80,7 +81,7 @@ public class SpawnManager : NetworkBehaviour {
         unitController.movementComponent.movementData.points.AddRange(barrackSpawnComponent.path);
 
         NetworkServer.Spawn(heroInstance, player.connectionToClient);
-        player.heroes[hero] = heroInstance;
+        player.heroes[heroIndex] = heroInstance;
         
         unitController.entityId = new EntityId(CommonEntityType.Heroes, heroIndex);
 

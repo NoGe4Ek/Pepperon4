@@ -54,14 +54,19 @@ namespace Pepperon.Scripts.UI {
 
         public IEnumerator Wss(string url, object body, Action<IServerSessionEvent> onMessage, Action<string> onError,
             Action<WebSocketCloseCode> onClose) {
+            // Auth header not work for WebGL Build!
+            // new Dictionary<string, string> {
+            //     { "Authorization", $"Bearer {bearerToken}" }
+            // }
+            // https://github.com/endel/NativeWebSocket/issues/14
             WebSocket websocket = new WebSocket(
-                url + "?" + BodyToParams(body),
-                new Dictionary<string, string> {
-                    { "Authorization", $"Bearer {bearerToken}" }
-                }
+                url + "?" + BodyToParams(body)
             );
             websockets.Add(websocket);
-            websocket.OnOpen += () => { Debug.Log("Connection open!"); };
+            websocket.OnOpen += () => {
+                new Task(WssSend(new Auth(bearerToken)));
+                Debug.Log("Connection open!");
+            };
 
             websocket.OnError += (e) => {
                 Debug.Log("Error! " + e);

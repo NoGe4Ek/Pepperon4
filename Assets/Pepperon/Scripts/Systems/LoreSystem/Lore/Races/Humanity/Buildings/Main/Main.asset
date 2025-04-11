@@ -18,3 +18,5 @@ MonoBehaviour:
   commonUpgradeTypes: 
   upgrades: []
   abilities: []
+  minimapIconPrefab: {fileID: 4307070494387967576, guid: d07f43ad56ae88e40a113fa01cb3fe01,
+    type: 3}

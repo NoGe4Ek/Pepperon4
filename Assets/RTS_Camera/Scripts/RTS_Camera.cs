@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Pepperon.Scripts.DI;
+using Pepperon.Scripts.Managers;
 
 namespace RTS_Cam
 {
@@ -201,6 +203,22 @@ namespace RTS_Cam
             LimitPosition();
         }
 
+        private void HandleMinimap() {
+            if (KeyboardInput == Vector2.zero)
+            {
+                MinimapManager.Instance.isManualMovement = false;
+                MinimapManager.Instance.autoMovementLock = false;
+            }
+            else {
+                if (!MinimapManager.Instance.autoMovementLock) {
+                    MinimapManager.Instance.isManualMovement = true;
+                    Vector3 movementVector = new Vector3(m_Transform.position.x,
+                        G.Instance.mainCamera.transform.position.y, m_Transform.position.z);
+                    MinimapManager.Instance.lastCameraTarget = movementVector;
+                }
+            }
+        }
+        
         /// <summary>
         /// move camera with keyboard or with screen edge
         /// </summary>
@@ -208,6 +226,7 @@ namespace RTS_Cam
         {
             if (useKeyboardInput)
             {
+                HandleMinimap();
                 Vector3 desiredMove = new Vector3(KeyboardInput.x, 0, KeyboardInput.y);
 
                 desiredMove *= keyboardMovementSpeed;

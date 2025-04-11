@@ -35,11 +35,6 @@ public class EntityController : NetworkBehaviour {
 
 
     public EntityProgress entityProgress() {
-        Debug.Log(
-            "ENTITY PROGRESS: PlayerId - " + PlayerController.localPlayer.playerId +
-            ", Progress - " + PlayerController.localPlayer.progress.GetHashCode() +
-            ", Local player - " + PlayerController.localPlayer.GetHashCode()
-            );
         if (isServer)
             return SessionManager.Instance.players[connectionToClient].progress.entities[entityId.entityType]
                 [entityId.entityIndex];

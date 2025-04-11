@@ -4,9 +4,11 @@ using System.Linq;
 using System.Numerics;
 using Mirror;
 using Pepperon.Scripts.Controllers;
+using Pepperon.Scripts.DI;
 using Pepperon.Scripts.Entities.Components;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Upgrades;
 using Pepperon.Scripts.Systems.LoreSystem.Base.Entities;
+using Pepperon.Scripts.UI;
 using Pepperon.Scripts.Utils;
 using TMPro;
 using UnityEngine;
@@ -65,23 +67,24 @@ public class UIManager : NetworkBehaviour {
             var upgradeItem = Instantiate(upgradeItemPrefab, primaryUpgradesParent);
             upgradeItem.GetComponentsInChildren<Image>().First(component => component.name == "UpgradeIcon").sprite =
                 upgrade.icon;
-            upgradeItem.GetComponentsInChildren<Button>().First().onClick.AddListener(() => { 
+            upgradeItem.GetComponentsInChildren<Button>().First().onClick.AddListener(() => {
                 // Local check (todo disable button if not allowed)
                 var upgradeProgress = PlayerController.localPlayer.progress.upgrades[upgradeType];
                 if (upgradeProgress.progress + 1 > upgrade.progressCosts.Length - 1) return;
                 if (PlayerController.localPlayer.gold < upgrade.progressCosts[upgradeProgress.progress + 1]) return;
-                
+
                 // Request server to upgrade
                 UpgradeManager.Instance.CmdUpgrade(PlayerController.localPlayer.playerId, upgradeType);
                 // Local start slider progress
                 var progressTime = upgrade.progressTimes[upgradeProgress.progress + 1];
-                new Task(PeriodicFunction(progressTime, 1f, progress => {
-                    upgradeItem.GetComponentsInChildren<Slider>().First().value = progress / progressTime;
-                }));
+                new Task(PeriodicFunction(progressTime, 1f,
+                    progress => {
+                        upgradeItem.GetComponentsInChildren<Slider>().First().value = progress / progressTime;
+                    }));
                 // Disable button
                 upgradeItem.GetComponentsInChildren<Button>().First().interactable = false;
             });
-            
+
             upgradeItems[upgradeType] = upgradeItem;
         }
     }
@@ -105,33 +108,19 @@ public class UIManager : NetworkBehaviour {
             heroItem.GetComponentsInChildren<Image>().First(component => component.name == "HeroIcon")
                 .sprite = hero.icon;
             heroItem.GetComponentsInChildren<Button>().First().onClick.AddListener(() => {
-                if (PlayerController.localPlayer.heroes[hero] == null) {
+                if (PlayerController.localPlayer.heroes[heroIndex] == null) {
                     InteractionManager.Instance.EnterChooseBarrackMode(heroIndex);
-                    
                 }
                 else {
-                    new Task(SmoothCameraMove(PlayerController.localPlayer.heroes[hero].transform.position));
+                    new Task(UIG.SmoothMove(G.Instance.mainCamera, PlayerController.localPlayer.heroes[heroIndex].transform.position));
                 }
             });
 
             heroItems[hero] = heroItem;
         }
     }
-    private IEnumerator SmoothCameraMove(Vector3 targetPosition, float duration = 1f) {
-        Camera mainCamera = Camera.main;
-        if (mainCamera == null) yield break;
+
     
-        Vector3 startPosition = mainCamera.transform.position;
-        float elapsedTime = 0f;
-    
-        while (elapsedTime < duration) {
-            mainCamera.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-    
-        mainCamera.transform.position = targetPosition;
-    }
 
     private void Start() {
         meleeUpgradeDamageButton.onClick.AddListener(OnMeleeUpgradeDamageClick);

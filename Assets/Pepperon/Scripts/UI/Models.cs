@@ -15,6 +15,15 @@ namespace Pepperon.Scripts.UI {
     public interface ILobbyClientSessionEvent : IServerSessionEvent { }
 
     [Serializable]
+    public class Auth : ILobbyClientSessionEvent {
+        public string bearerToken;
+
+        public Auth(string bearerToken) {
+            this.bearerToken = bearerToken;
+        }
+    }
+
+    [Serializable]
     public class ChangeRace : ILobbyClientSessionEvent {
         public Race race;
 
@@ -59,9 +68,13 @@ namespace Pepperon.Scripts.UI {
     [Serializable]
     public class GameStarted : ILobbyServerSessionEvent {
         public string UserId { get; set; }
+        public string MatchId { get; set; }
+        public string Port { get; set; }
 
-        public GameStarted(string userId) {
+        public GameStarted(string userId, string matchId, string port) {
             UserId = userId;
+            MatchId = matchId;
+            Port = port;
         }
     }
 

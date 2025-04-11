@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 7359224316085849079}
   - component: {fileID: 7378510135358885087}
   - component: {fileID: 7700336136761938228}
+  - component: {fileID: 8557601037062089911}
   m_Layer: 6
   m_Name: HumanRange
   m_TagString: Untagged
@@ -420,6 +421,18 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &8557601037062089911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682758493364112835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c3fcbe988946c594e15af46bbee6de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &827080895922887405
 GameObject:
   m_ObjectHideFlags: 0

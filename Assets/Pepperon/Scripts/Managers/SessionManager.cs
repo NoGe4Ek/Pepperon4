@@ -19,6 +19,7 @@ using UnityEngine;
 using Task = Pepperon.Scripts.Utils.Task;
 
 namespace Pepperon.Scripts.Managers {
+[Serializable]
 public enum GameState {
     WaitingForPlayers,
     Setup,
@@ -202,29 +203,29 @@ public class SessionManager : NetworkBehaviour {
             leftBarrackController.playerType = player.playerId;
             rightBarrackController.playerType = player.playerId;
 
-            player.mainBuilding = mainBuilding;
-            player.barracks.Add(centerBarrack);
-            player.barracks.Add(leftBarrack);
-            player.barracks.Add(rightBarrack);
-
             NetworkServer.Spawn(mainBuilding, player.connectionToClient);
             NetworkServer.Spawn(centerBarrack, player.connectionToClient);
             NetworkServer.Spawn(leftBarrack, player.connectionToClient);
             NetworkServer.Spawn(rightBarrack, player.connectionToClient);
+            
+            player.mainBuilding = mainBuilding;
+            player.barracks.Add(centerBarrack);
+            player.barracks.Add(leftBarrack);
+            player.barracks.Add(rightBarrack);
 
             mainBuildingController.entityId = new EntityId(CommonEntityType.MainBuilding, 0);
             centerBarrackController.entityId = new EntityId(CommonEntityType.Barrack, 0);
             leftBarrackController.entityId = new EntityId(CommonEntityType.Barrack, 1);
             rightBarrackController.entityId = new EntityId(CommonEntityType.Barrack, 2);
 
-            foreach (var hero in player.race.entities[CommonEntityType.Heroes]) {
-                player.heroes[(hero as Hero)!] = null;
+            for (var heroIndex = 0; heroIndex < player.race.entities[CommonEntityType.Heroes].Count; heroIndex++) {
+                player.heroes[heroIndex] = null;
             }
         }
 
         state = GameState.InProgress;
     }
-
+    
     private List<Transform> GetPath(Transform startPoint) {
         var startIndex = pathPoints.IndexOf(startPoint);
         var reorderedList = pathPoints.GetRange(startIndex, pathPoints.Count - startIndex);

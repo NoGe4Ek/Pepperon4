@@ -49,7 +49,8 @@ namespace Pepperon.Scripts.UI {
                                 UpdateRace(players[raceChanged.UserId], raceChanged.Race);
                                 break;
                             case GameStarted gameStarted:
-                                PlayerPrefs.SetString("MatchAddress", "213.21.27.138");
+                                PlayerPrefs.SetString("Port", gameStarted.Port);
+                                PlayerPrefs.SetString("MatchAddress", "match-" + gameStarted.MatchId);
                                 PlayerPrefs.SetString("PlayerId", gameStarted.UserId);
                                 PlayerPrefs.Save();
 
@@ -87,7 +88,8 @@ namespace Pepperon.Scripts.UI {
                                 UpdateRace(players[raceChanged.UserId], raceChanged.Race);
                                 break;
                             case GameStarted gameStarted:
-                                PlayerPrefs.SetString("MatchAddress", "213.21.27.138");
+                                PlayerPrefs.SetString("Port", gameStarted.Port);
+                                PlayerPrefs.SetString("MatchAddress", "match-" + gameStarted.MatchId);
                                 PlayerPrefs.SetString("PlayerId", gameStarted.UserId);
                                 PlayerPrefs.Save();
 

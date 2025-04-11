@@ -7,6 +7,7 @@ using Pepperon.Scripts.Entities.Systems.LoreSystem.Base.Upgrades;
 using Pepperon.Scripts.Systems.LoreSystem.Base.Infos;
 using Pepperon.Scripts.Systems.LoreSystem.Base.Infos.EntityInfos;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Pepperon.Scripts.Systems.LoreSystem.Base.Entities {
 [Serializable]
@@ -25,6 +26,8 @@ public class Entity : ScriptableObject, IProgressable<EntityProgress> {
     public List<CommonUpgradeType> commonUpgradeTypes;
     public List<Upgrade> upgrades;
     public List<Ability> abilities;
+
+    public GameObject minimapIconPrefab;
 
     public virtual EntityProgress ToProgress() => new() {
         commonUpgradeTypes = commonUpgradeTypes,
