@@ -12,10 +12,12 @@ using Pepperon.Scripts.Entities.Controllers;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base;
 using Pepperon.Scripts.Networking.Services;
 using Pepperon.Scripts.Systems.LoreSystem.Base;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Cards;
 using Pepperon.Scripts.Systems.LoreSystem.Base.Entities;
 using Pepperon.Scripts.UI;
 using Unity.VisualScripting;
 using UnityEngine;
+using EntityId = Pepperon.Scripts.Systems.LoreSystem.Base.EntityId;
 using Task = Pepperon.Scripts.Utils.Task;
 
 namespace Pepperon.Scripts.Managers {
@@ -221,6 +223,9 @@ public class SessionManager : NetworkBehaviour {
             for (var heroIndex = 0; heroIndex < player.race.entities[CommonEntityType.Heroes].Count; heroIndex++) {
                 player.heroes[heroIndex] = null;
             }
+            
+            player.boundCards.Add(new CardId(Rarity.Common, 0));
+            player.boundCards.Add(new CardId(Rarity.Common, 1));
         }
 
         state = GameState.InProgress;

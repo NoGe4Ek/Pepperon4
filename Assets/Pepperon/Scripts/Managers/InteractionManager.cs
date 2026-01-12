@@ -4,7 +4,7 @@ using Pepperon.Scripts.UI.Interaction;
 using UnityEngine;
 
 namespace Pepperon.Scripts.Managers {
-public class InteractionManager : NetworkBehaviour {
+public class InteractionManager : MonoBehaviour {
     public static InteractionManager Instance { get; private set; }
 
     [SerializeField] private LayerMask interactionLayer;
@@ -33,7 +33,7 @@ public class InteractionManager : NetworkBehaviour {
         isChooseBarrackMode = true;
         selectedHeroIndex = heroIndex;
         foreach (var barrack in PlayerController.localPlayer.barracks) {
-            barrack.GetComponent<BlinkInteraction>().Enable();
+            barrack?.GetComponent<BlinkInteraction>().Enable();
         }
     }
 

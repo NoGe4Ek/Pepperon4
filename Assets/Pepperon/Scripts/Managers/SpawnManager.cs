@@ -1,13 +1,17 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Mirror;
 using Pepperon.Scripts.Entities.Components;
 using Pepperon.Scripts.Entities.Controllers;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base;
 using Pepperon.Scripts.Systems.LoreSystem.Base;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Cards;
 using Pepperon.Scripts.Systems.LoreSystem.Base.Entities;
 using Pepperon.Scripts.Utils;
+using Unity.VisualScripting;
 using UnityEngine;
+using EntityId = Pepperon.Scripts.Systems.LoreSystem.Base.EntityId;
 
 namespace Pepperon.Scripts.Managers {
 public class SpawnManager : NetworkBehaviour {
@@ -36,10 +40,9 @@ public class SpawnManager : NetworkBehaviour {
     private void SpawnUnit() {
         for (var playerIndex = 0; playerIndex < SessionManager.Instance.players.Count; playerIndex++) {
             var player = SessionManager.Instance.players.Values.ToList()[playerIndex];
+            var units = player.boundCards.Select(it => player.race.cards[it.rarity][it.cardIndex]).OfType<EntityCard>().Select(it => it.entity).ToList();
 
-            for (var unitIndex = 0; unitIndex < player.race.entities[CommonEntityType.Units].Count; unitIndex++) {
-                var unit = player.race.entities[CommonEntityType.Units][unitIndex];
-                
+            foreach (var unit in units) {
                 for (var barrackIndex = 0; barrackIndex < player.race.entities[CommonEntityType.Barrack].Count; barrackIndex++) {
                     var barrack = player.barracks[barrackIndex];
                     if(barrack == null) continue;
@@ -51,7 +54,7 @@ public class SpawnManager : NetworkBehaviour {
                     var unitController = unitInstance.GetComponentInParent<UnitController>();
                     unitController.movementComponent.movementData.points.AddRange(barrackSpawnComponent.path);
                     unitController.playerType = player.playerId;
-                    unitController.entityId = new EntityId(CommonEntityType.Units, unitIndex);
+                    unitController.entityId = new EntityId(CommonEntityType.Units, unit.id);
 
                     NetworkServer.Spawn(unitInstance, player.connectionToClient);
                 }

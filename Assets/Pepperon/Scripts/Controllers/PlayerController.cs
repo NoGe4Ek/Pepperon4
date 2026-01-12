@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Mirror;
 using Pepperon.Scripts.DI;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base;
 using Pepperon.Scripts.Managers;
 using Pepperon.Scripts.Systems.LoreSystem.Base;
-using Pepperon.Scripts.Systems.LoreSystem.Base.Entities;
+using Pepperon.Scripts.Systems.LoreSystem.Base.Cards;
 using Pepperon.Scripts.UI;
 using Pepperon.Scripts.Units.Components.StateMachines;
 using UnityEngine;
@@ -15,12 +14,15 @@ using Race = Pepperon.Scripts.Systems.LoreSystem.Base.Race;
 namespace Pepperon.Scripts.Controllers {
 public class PlayerController : NetworkBehaviour {
     [SyncVar] public UserResponse user;
+    [SyncVar] public int level;
     [SyncVar(hook = nameof(OnPlayerIdChange))] public int playerId;
     [SyncVar(hook = nameof(OnMainBuildingChange))] public GameObject mainBuilding;
     [SyncVar(hook = nameof(OnGoldChange))] public int gold;
     [SyncVar(hook = nameof(OnRaceChange))] public Race race;
     public readonly SyncList<GameObject> barracks = new();
     public readonly SyncDictionary<int, GameObject> heroes = new();
+    public readonly SyncList<CardId> handCards = new();
+    public readonly SyncList<CardId> boundCards = new();
     
     public static PlayerController localPlayer;
     public bool isAuthenticated;
@@ -30,6 +32,17 @@ public class PlayerController : NetworkBehaviour {
     public event Action OnRaceChanged;
     public event Action<int> OnNewGold;
     public static event Action OnLocalPlayerReady;
+
+    public override void OnStartClient() {
+        handCards.OnAdd += OnItemAdded;
+    }
+    public override void OnStopClient() {
+        handCards.OnAdd -= OnItemAdded;
+    }
+    void OnItemAdded(int index) {
+        var newCardId = handCards[index];
+        HandManager.Instance.DrawCard(newCardId);
+    }
     
     // fix hook to setup point
     private void OnMainBuildingChange(GameObject oldMainBuilding, GameObject newMainBuilding) {
@@ -99,11 +112,20 @@ public class PlayerController : NetworkBehaviour {
 
     [Command]
     private void CmdAuthenticate(string id) {
-        var player = BootManager.Instance.Lobby.players.First(player => player.user.id == id);
-        user = player.user;
+        var player = SessionManager.Instance.players.Values.FirstOrDefault(it => it.user.id == id);
+        if (player != null) {
+            NetworkServer.ReplacePlayerForConnection(connectionToClient, player.gameObject,
+                ReplacePlayerOptions.KeepAuthority);
+            return;
+        }
+        
+        SessionManager.Instance.AddPlayer(connectionToClient, this);
+        
+        var playerResponse = BootManager.Instance.Lobby.players.First(player => player.user.id == id);
+        user = playerResponse.user;
         isAuthenticated = true;
         
-        switch (player.race) {
+        switch (playerResponse.race) {
             case UI.Race.NONE:
                 break;
             case UI.Race.HUMANITY:

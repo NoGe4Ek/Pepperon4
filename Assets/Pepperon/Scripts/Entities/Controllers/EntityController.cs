@@ -8,9 +8,14 @@ using Pepperon.Scripts.Systems.LoreSystem.Base;
 using Pepperon.Scripts.Systems.LoreSystem.Base.Entities;
 using UnityEngine;
 using UnityEngine.UI;
+using EntityId = Pepperon.Scripts.Systems.LoreSystem.Base.EntityId;
 
 namespace Pepperon.Scripts.Entities.Controllers {
 public class EntityController : NetworkBehaviour {
+    // Используется, чтобы можно было обратиться к entity SO и entityProgress игрока. При этом это значение
+    // задается на беке. Нужно чтобы объекты на клиенте могли получить доступ к тем же объектам, но синхронизировать
+    // ссылки на эти объекты нельзя.
+    // По сути ссылка на Entity.
     [SyncVar] public EntityId entityId;
     [SyncVar(hook = nameof(OnPlayerTypeChange))] public int playerType;
 

@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using System.Linq;
+using Mirror;
 using Pepperon.Scripts.Controllers;
 using Pepperon.Scripts.Entities.Systems.LoreSystem.Base;
 using Pepperon.Scripts.Managers;
@@ -15,14 +16,14 @@ public class MyNetworkManager : NetworkManager {
         player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
         NetworkServer.AddPlayerForConnection(conn, player);
 
-        PlayerController playerController = player.GetComponent<PlayerController>();
-        SessionManager.Instance.AddPlayer(conn, playerController);
+        // PlayerController playerController = player.GetComponent<PlayerController>();
+        // SessionManager.Instance.AddPlayer(conn, playerController);
     }
 
     // [Server]
     public override void OnServerDisconnect(NetworkConnectionToClient conn) {
-        base.OnServerDisconnect(conn);
-        SessionManager.Instance.RemovePlayer(conn);
+        // base.OnServerDisconnect(conn);
+        // SessionManager.Instance.RemovePlayer(conn);
     }
 }
 }

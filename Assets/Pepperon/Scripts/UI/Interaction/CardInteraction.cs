@@ -51,23 +51,21 @@ public class CardInteraction : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     }
 
     public void OnEndDrag(PointerEventData eventData) {
-        // canvasGroup.alpha = 1f;
-        // canvasGroup.blocksRaycasts = true;
-
-        // Пример: возвращаем обратно на начальное место (можно сделать привязку к слотам)
-        returnMove = transform.DOMove(originalPosition, 0.5f).OnKill(() => { inProgress = false; }).OnComplete(() => { inProgress = false; });
-        returnRotation = transform.DOLocalRotateQuaternion(originalRotation, 0.5f);
-
         DetectDropCard();
     }
-    
+
     public void DetectDropCard() {
         var ray = G.Instance.mainCamera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out var hit, Mathf.Infinity, interactionLayer)) {
-            if (!hit.transform.TryGetComponent(out BuildingController buildingController)) return;
-            HandManager.Instance.RemoveCard(gameObject);
-            Destroy(gameObject);
+            if (hit.transform.TryGetComponent(out BuildingCardDropArea buildingCardDropArea)) {
+                buildingCardDropArea.OnDropCard(GetComponent<CardController>());
+                return;
+            }
         }
+        
+        returnMove = transform.DOMove(originalPosition, 0.5f).OnKill(() => { inProgress = false; })
+            .OnComplete(() => { inProgress = false; });
+        returnRotation = transform.DOLocalRotateQuaternion(originalRotation, 0.5f);
     }
 }
 }
