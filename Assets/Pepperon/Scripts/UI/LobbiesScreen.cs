@@ -6,12 +6,13 @@ using Newtonsoft.Json.Converters;
 using Pepperon.Scripts.Utils;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Button = UnityEngine.UI.Button;
 
 namespace Pepperon.Scripts.UI {
     public class LobbiesScreen : BaseScreen {
         public TMP_Text usernameText;
-        public Button joinButton, createButton, updateButton;
+        public Button joinButton, createButton, updateButton, reconnectButton;
         public Transform lobbiesContainer;
         public GameObject lobbyItemPrefab;
 
@@ -34,6 +35,13 @@ namespace Pepperon.Scripts.UI {
             createButton.onClick.AddListener(() => { ScreenManager.Instance.ShowScreen<LobbyScreen>(); });
 
             updateButton.onClick.AddListener(UpdateLobbies);
+            
+            reconnectButton.onClick.AddListener(() => {
+                PlayerPrefs.SetString("Port", PlayerPrefs.GetString("ActiveMatchPort"));
+                PlayerPrefs.Save();
+
+                SceneManager.LoadScene("Match");
+            });
         }
 
         private void UpdateLobbies() {

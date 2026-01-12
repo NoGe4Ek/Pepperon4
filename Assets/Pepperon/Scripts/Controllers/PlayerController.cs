@@ -94,8 +94,8 @@ public class PlayerController : NetworkBehaviour {
 
     // [Client]
     public void OnPlayerIdChange(int oldPlayerId, int newPlayerId) {
-        if (newPlayerId == -1) return;
-        SessionManager.Instance.AddKnownPlayer(newPlayerId);
+        // if (newPlayerId == -1) return;
+        // SessionManager.Instance.AddKnownPlayer(newPlayerId);
     }
 
     public void Awake() {

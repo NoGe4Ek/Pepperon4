@@ -28,9 +28,11 @@ public class AuthScreen : BaseScreen {
             var login = HttpClient.Instance.Post<AuthResponse>("https://www.aphirri.ru/users/login",
                 new AuthRequest(usernameTextField.text, passwordTextField.text),
                 response => {
-                    Debug.Log("Response: " + response.token);
+                    Debug.Log("Response token: " + response.token);
+                    Debug.Log("Response ActiveMatchPort: " + response.activeMatchPort);
                     HttpClient.Instance.bearerToken = response.token;
                     HttpClient.Instance.userId = response.userId;
+                    PlayerPrefs.SetString("ActiveMatchPort", response.activeMatchPort);
                     
                     ScreenManager.Instance.ShowScreen<LobbiesScreen>();
                 },
@@ -54,6 +56,7 @@ public class AuthScreen : BaseScreen {
     public class AuthResponse {
         public string token;
         public string userId;
+        public string activeMatchPort;
     }
 }
 }

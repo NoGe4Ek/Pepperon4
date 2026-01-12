@@ -45,8 +45,39 @@ public class SessionManager : NetworkBehaviour {
     // List of players (client and server).
     // Store PlayerController for each integer id (order number of player connection)
     // P.S. Known on client side
-    public readonly Dictionary<int, PlayerController> knownPlayers = new();
- 
+    public readonly SyncDictionary<int, PlayerController> knownPlayers = new();
+
+    public override void OnStartClient() {
+        // Add handlers for SyncDictionary Actions
+        knownPlayers.OnAdd += OnItemAdded;
+        knownPlayers.OnSet += OnItemChanged;
+        knownPlayers.OnRemove += OnItemRemoved;
+
+        // Dictionary is populated before handlers are wired up so we
+        // need to manually invoke OnAdd for each element.
+        foreach (var key in knownPlayers.Keys)
+            knownPlayers.OnAdd.Invoke(key);
+    }
+
+    public override void OnStopClient() {
+        // Remove handlers when client stops
+        knownPlayers.OnAdd -= OnItemAdded;
+        knownPlayers.OnSet -= OnItemChanged;
+        knownPlayers.OnRemove -= OnItemRemoved;
+    }
+
+    void OnItemAdded(int key) {
+        Debug.Log($"Element added {key} {knownPlayers[key]}");
+    }
+
+    void OnItemChanged(int key, PlayerController oldValue) {
+        Debug.Log($"Element changed {key} from {oldValue} to {knownPlayers[key]}");
+    }
+
+    void OnItemRemoved(int key, PlayerController oldValue) {
+        Debug.Log($"Element removed {key} {oldValue}");
+    }
+
     public static event Action<string> OnTimeTick;
 
 
@@ -79,7 +110,7 @@ public class SessionManager : NetworkBehaviour {
     public void AddPlayer(NetworkConnectionToClient conn, PlayerController player) {
         // Save player connection to controller (for server needs)
         players.Add(conn, player);
-        
+
         // Save player id to controller (for client needs)
         // Trigger AddKnownPlayer on clients
         var playerId = players.Count - 1;
@@ -94,7 +125,7 @@ public class SessionManager : NetworkBehaviour {
         RpcRemoveKnownPlayer(player.playerId);
 
         players.Remove(conn);
-        if (players.Count( it => !new Regex(@"^bot-\d+$").IsMatch(it.Value.user.id)) == 0)
+        if (players.Count(it => !new Regex(@"^bot-\d+$").IsMatch(it.Value.user.id)) == 0)
             MatchService.EndMatch(
                 new MatchResult(
                     MatchResultType.ABNORMAL,
@@ -114,11 +145,11 @@ public class SessionManager : NetworkBehaviour {
 
     // Find all Controllers on client scene and get one with player's id
     // [Client]
-    public void AddKnownPlayer(int playerId) {
-        var playerController =
-            FindObjectsOfType<PlayerController>().FirstOrDefault(player => player.playerId == playerId);
-        knownPlayers[playerId] = playerController;
-    }
+    // public void AddKnownPlayer(int playerId) {
+    //     var playerController =
+    //         FindObjectsOfType<PlayerController>().FirstOrDefault(player => player.playerId == playerId);
+    //     knownPlayers[playerId] = playerController;
+    // }
 
     private void Awake() {
         Instance = this;
@@ -183,7 +214,8 @@ public class SessionManager : NetworkBehaviour {
             Quaternion leftBarrackRotation = lookRotation * Quaternion.Euler(0, -90, 0);
             Vector3 leftBarrackDirection = leftBarrackRotation * Vector3.forward;
             Vector3 leftBarrackPosition = startPos.position + leftBarrackDirection * 5f;
-            var leftBarrack = Instantiate(player.race.entities[CommonEntityType.Barrack][1].prefab, leftBarrackPosition,
+            var leftBarrack = Instantiate(player.race.entities[CommonEntityType.Barrack][1].prefab,
+                leftBarrackPosition,
                 leftBarrackRotation);
             var leftBarrackController = leftBarrack.GetComponent<BuildingController>();
             var leftBarrackPath = GetPath(startPos);
@@ -209,7 +241,7 @@ public class SessionManager : NetworkBehaviour {
             NetworkServer.Spawn(centerBarrack, player.connectionToClient);
             NetworkServer.Spawn(leftBarrack, player.connectionToClient);
             NetworkServer.Spawn(rightBarrack, player.connectionToClient);
-            
+
             player.mainBuilding = mainBuilding;
             player.barracks.Add(centerBarrack);
             player.barracks.Add(leftBarrack);
@@ -223,14 +255,14 @@ public class SessionManager : NetworkBehaviour {
             for (var heroIndex = 0; heroIndex < player.race.entities[CommonEntityType.Heroes].Count; heroIndex++) {
                 player.heroes[heroIndex] = null;
             }
-            
+
             player.boundCards.Add(new CardId(Rarity.Common, 0));
             player.boundCards.Add(new CardId(Rarity.Common, 1));
         }
 
         state = GameState.InProgress;
     }
-    
+
     private List<Transform> GetPath(Transform startPoint) {
         var startIndex = pathPoints.IndexOf(startPoint);
         var reorderedList = pathPoints.GetRange(startIndex, pathPoints.Count - startIndex);
@@ -242,7 +274,7 @@ public class SessionManager : NetworkBehaviour {
     private void CheckPlayerDefeat(GameObject killerObject, GameObject diedObject) {
         if (!diedObject.TryGetComponent(out BuildingController buildingController)) return;
         if (players.Count(it => !it.Value.IsPlayerDefeat(diedObject)) != 1) return;
-        
+
         state = GameState.Finished;
         MatchService.EndMatch(
             new MatchResult(
